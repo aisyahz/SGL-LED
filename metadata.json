@@ -1,0 +1,8 @@
+{
+  "name": "SGL LED Displays",
+  "description": "Ultra-premium commercial-grade LED display solutions for luxury corporate lobby showcases, retail shopping mall installations, and digital outdoor billboards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
