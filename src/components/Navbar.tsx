@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ShieldCheck, PhoneCall, Layers, Monitor, Calculator, ArrowRight, Menu, X } from 'lucide-react';
-import logoImg from '../assets/images/logo.png';
+import logoImg from '../assets/images/logo-2.png';
 
 interface NavbarProps {
   onNavigateToSection: (sectionId: string) => void;
@@ -23,6 +23,18 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Prevent background scroll leakage when mobile nav drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   const navItems = [
     { label: 'LED Solutions', id: 'solutions-section', icon: Layers },
@@ -56,7 +68,7 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
                 <img 
                   src={logoImg} 
                   alt="SGL Logo" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain p-0.5"
                   referrerPolicy="no-referrer"
                 />
               </div>

@@ -206,9 +206,9 @@ export default function ProductCalculator() {
               </div>
               
               {/* Presets Button Links */}
-              <div className="mt-5 pt-4 border-t border-white/5 flex justify-between items-center text-xs">
-                <span className="text-slate-400 font-semibold">Presets:</span>
-                <div className="flex gap-1.5">
+              <div className="mt-5 pt-4 border-t border-white/5 flex flex-wrap sm:flex-nowrap justify-between items-center gap-2 text-xs">
+                <span className="text-slate-400 font-semibold shrink-0">Presets:</span>
+                <div className="flex flex-wrap gap-1.5 justify-end">
                   <button
                     onClick={() => { setWidth(4.8); setHeight(2.7); }}
                     className="bg-transparent border border-white/10 hover:border-white px-2.5 py-1 text-slate-300 font-mono text-[10px] transition cursor-pointer"

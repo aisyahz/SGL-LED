@@ -1,5 +1,5 @@
 import { ArrowUp, Mail, Phone, MapPin, ExternalLink, Calendar } from 'lucide-react';
-import logoImg from '../assets/images/logo.png';
+import logoImg from '../assets/images/logo-2.png';
 
 interface FooterProps {
   onNavigateToSection: (sectionId: string) => void;
@@ -22,7 +22,7 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
                 <img 
                   src={logoImg} 
                   alt="SGL Logo" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain p-0.5"
                   referrerPolicy="no-referrer"
                 />
               </div>

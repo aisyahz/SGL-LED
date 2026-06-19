@@ -117,7 +117,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-[40px] sm:text-5xl md:text-6xl lg:text-[76px] font-display font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-500 uppercase leading-[0.9] mb-4"
+                className="text-3xl sm:text-5xl md:text-6xl lg:text-[76px] font-display font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-500 uppercase leading-[1.1] md:leading-[0.9] mb-4"
               >
                 {currentSlide.heading}
               </motion.h1>
@@ -159,7 +159,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.5, delay: 0.35 }}
-                className="mb-8 border border-white/5 bg-[#111827]/70 p-4 sm:p-5 max-w-xl rounded-none text-xs space-y-3 font-sans"
+                className="hidden sm:block mb-8 border border-white/5 bg-[#111827]/70 p-4 sm:p-5 max-w-xl rounded-none text-xs space-y-3 font-sans"
               >
                 <div className="flex items-start gap-4">
                   <span className="font-mono text-[8px] sm:text-[9px] text-[#38bdf8] tracking-wider uppercase shrink-0 w-24 pt-0.5">// TARGET SECTORS:</span>
