@@ -3,9 +3,11 @@ import Navbar from './components/Navbar';
 import HeroSlider from './components/HeroSlider';
 import ProductCatalog from './components/ProductCatalog';
 import ProductCalculator from './components/ProductCalculator';
+import IndustriesSection from './components/IndustriesSection';
 import CasePortfolio from './components/CasePortfolio';
 import TechUSPSection from './components/TechUSPSection';
 import CertificationSection from './components/CertificationSection';
+import FaqSection from './components/FaqSection';
 import LeadCaptureBanner from './components/LeadCaptureBanner';
 import Footer from './components/Footer';
 import ConsultationDialog from './components/ConsultationDialog';
@@ -80,6 +82,9 @@ export default function App() {
         {/* Dynamic Interactive Pixel Pitch & Screen Dimensions Calculator */}
         <ProductCalculator />
 
+        {/* Small "Industries We Serve" Section */}
+        <IndustriesSection />
+
         {/* Heavy Commercial Case Studies (Kuala Lumpur, Avenue K, Standard Chartered RM100k+ portfolio) */}
         <CasePortfolio />
 
@@ -89,6 +94,9 @@ export default function App() {
         {/* Industry Safety & Quality Certifications */}
         <CertificationSection />
 
+        {/* FAQ Section */}
+        <FaqSection />
+
         {/* Marketing Action banner for AV engineers & developers */}
         <LeadCaptureBanner
           onOpenConsultation={handleOpenConsultation}
@@ -97,6 +105,21 @@ export default function App() {
 
       {/* Premium Corporate Footer */}
       <Footer onNavigateToSection={handleNavigateToSection} />
+
+      {/* Elegant, Swiss-modern floating WhatsApp Button */}
+      <a
+        href="https://wa.me/60123456789"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 left-6 z-50 flex items-center gap-2 px-4 py-2.5 bg-[#05070a] border border-emerald-500/30 hover:border-emerald-400 text-white font-mono text-[9px] tracking-[0.2em] uppercase transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.15)] group rounded-none"
+        aria-label="Direct SGL WhatsApp Engineering Contact"
+      >
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span className="font-bold text-emerald-400 group-hover:text-emerald-350 transition-colors">LIVE ENG SUPPORT</span>
+      </a>
 
       {/* Interactive RFP Project bid planner dialog */}
       <ConsultationDialog

@@ -8,17 +8,17 @@ import heroOutdoorImg from './assets/images/hero_outdoor_billboard_1781800816748
 export const HERO_SLIDES = [
   {
     id: 'slide-1',
-    heading: 'Luxurious Seamless Indoor LED Walls',
-    tagline: 'CREATING RM100,000+ ICONIC CORPORATE LANDMARKS',
-    description: 'Transform executive lobbys, control command rooms, and premium boardrooms with elite 8K-ready seamless COB LED systems displaying rich, hyperrealistic visual dimensions.',
+    heading: "Malaysia's Trusted LED Display Engineering Partner",
+    tagline: 'SGL LUMINA • COMMERCIAL & PUBLIC SPACES SPECIALIST',
+    description: 'Premium Indoor & Outdoor LED Display Solutions for Corporate, Retail, Education and Commercial Projects.',
     image: heroIndoorImg,
-    badge: 'LUXURY CORPORATE INTERIORS',
+    badge: 'MALAYSIA BRAND LEADERSHIP',
     accentColor: 'from-cyan-500 to-blue-500',
     meta: { size: 'Custom 8K Wide', pitch: 'P0.9 - P1.5', tech: 'COB Ultra-Seamless' }
   },
   {
     id: 'slide-2',
-    heading: 'High-Impact Mall retail displays',
+    heading: 'High-Impact Mall Retail Displays',
     tagline: 'PREMIUM SHOPPING MALL RETAIL INSTALLATIONS',
     description: 'Elevate luxury atria and premium shopping corridors with floating billboard arches, curved pillar columns, or super high-brightness dual-sided banner displays.',
     image: heroMallImg,
@@ -28,9 +28,9 @@ export const HERO_SLIDES = [
   },
   {
     id: 'slide-3',
-    heading: 'Gigantic Sky-High Billboard Titans',
+    heading: 'Weatherproof Commercial Outdoor Titans',
     tagline: 'HIGH-TRAFFIC METROPOLITAN WEATHERPROOF MEDIA',
-    description: 'Command urban skylines and high-ways with bulletproof double-sided structures capable of exceeding 7,500 nits for pristine legibility under intense scorching solar rays.',
+    description: 'Command urban skylines and highways with bulletproof convective cooling structures capable of exceeding 7,500 nits under scorching solar exposure.',
     image: heroOutdoorImg,
     badge: 'DRAMATIC SKYSCRAPER SITES',
     accentColor: 'from-blue-600 to-indigo-500',
