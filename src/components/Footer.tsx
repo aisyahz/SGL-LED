@@ -1,4 +1,4 @@
-import { ArrowUp, Mail, Phone, MapPin, ExternalLink, Calendar } from 'lucide-react';
+import { ArrowUp, Mail, Phone, MapPin } from 'lucide-react';
 import logoImg from '../assets/images/logo-sgl.jpeg';
 
 interface FooterProps {
@@ -100,6 +100,17 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
                 <span className="text-slate-500 font-semibold uppercase font-sans text-[9px] tracking-wider">Core Protection Unit:</span>
                 <span className="font-mono text-white font-semibold">Patented Micro COB</span>
               </div>
+            </div>
+
+            <div className="border border-white/8 bg-white/[0.01] overflow-hidden rounded-none">
+              <iframe
+                title="SGL International LED location map"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3984.2813163357605!2d101.4316!3d3.0189!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdab5faf497c57%3A0x5a44030984796556!2s238%2C%20Persiaran%20Pegaga%2C%20Taman%20Bayu%20Perdana%2C%2042000%20Pelabuhan%20Klang%2C%20Selangor!5e0!3m2!1sen!2smy!4v1781848443614!5m2!1sen!2smy"
+                className="h-64 w-full border-0 grayscale contrast-125"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
 
