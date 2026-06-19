@@ -78,8 +78,8 @@ Inside `ConsultationDialog.tsx` and `ProductCalculator.tsx`, custom commercial v
     *   $\text{Width } (W)$ in meters
     *   $\text{Height } (H)$ in meters
     *   $\text{Product Rate } (R)$ of Selected Product:
-        *   Main product: `P2.5 Indoor Led Display` at **RM 2,800** per sqm.
-        *   Secondary product: `P1.86 Indoor Led Display` at **RM 3,200** per sqm.
+        *   Corporate product: `P1.86 Indoor Led Display` at **RM 3,200** per sqm.
+        *   Retail product: `P2.5 Indoor Led Display` at **RM 2,800** per sqm.
         *   Outdoor product: `P4 Led Display Water Proof` at **RM 3,500** per sqm.
 
 $$\text{Estimated Project Cost (RM)} = H \times W \times R$$

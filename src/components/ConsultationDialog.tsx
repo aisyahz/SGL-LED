@@ -223,8 +223,8 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                           className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white focus:outline-none"
                           aria-label="Product series selector"
                         >
-                          <option value="Corporate">{PRICING_PRODUCTS.Corporate.productName} - RM 2,800 / sqm</option>
-                          <option value="Retail">{PRICING_PRODUCTS.Retail.productName} - RM 3,200 / sqm</option>
+                          <option value="Corporate">{PRICING_PRODUCTS.Corporate.productName} - RM 3,200 / sqm</option>
+                          <option value="Retail">{PRICING_PRODUCTS.Retail.productName} - RM 2,800 / sqm</option>
                           <option value="Outdoor">{PRICING_PRODUCTS.Outdoor.productName} - RM 3,500 / sqm</option>
                         </select>
                       </div>

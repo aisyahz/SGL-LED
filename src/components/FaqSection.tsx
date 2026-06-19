@@ -21,7 +21,7 @@ export default function FaqSection() {
     },
     {
       question: 'Which pixel pitch should I choose?',
-      answer: 'Pixel pitch selection depends on the minimum viewing distance and installation environment. For most indoor commercial displays, choose P2.5 Indoor Led Display. For sharper indoor viewing, choose P1.86 Indoor Led Display. For outdoor waterproof installations, choose P4 Led Display Water Proof.'
+      answer: 'Pixel pitch selection depends on the minimum viewing distance and installation environment. For corporate displays, choose P1.86 Indoor Led Display. For retail indoor displays, choose P2.5 Indoor Led Display. For outdoor waterproof installations, choose P4 Led Display Water Proof.'
     },
     {
       question: 'Do you cover all Malaysia?',

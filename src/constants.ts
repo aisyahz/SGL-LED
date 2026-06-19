@@ -14,7 +14,7 @@ export const HERO_SLIDES = [
     image: heroIndoorImg,
     badge: 'ENHANCED VISITOR EXPERIENCE',
     accentColor: 'from-cyan-500 to-blue-500',
-    meta: { size: 'Custom Indoor Sets', pitch: 'P2.5', tech: 'Lobbies & Auditoriums' },
+    meta: { size: 'Custom Indoor Sets', pitch: 'P1.86', tech: 'Lobbies & Auditoriums' },
     industry: 'Corporate Reception, Schools, Premium Restaurants, Worship Houses',
     useCase: 'Welcoming lobbies, immersive workspaces, elegant dining halls, digital signage',
     benefit: 'Command absolute attention, bolster operational prestige, and deliver clear, striking communication'
@@ -27,7 +27,7 @@ export const HERO_SLIDES = [
     image: heroMallImg,
     badge: 'MAXIMIZED AD REVENUE',
     accentColor: 'from-purple-500 to-pink-500',
-    meta: { size: 'Floating ribbons', pitch: 'P1.86', tech: 'Atriums & Store Fronts' },
+    meta: { size: 'Floating ribbons', pitch: 'P2.5', tech: 'Atriums & Store Fronts' },
     industry: 'Shopping Malls, Flagship Retailers, Commercial Property Developers',
     useCase: 'Curved architectural ribbons, suspended central atriums, focal main lobbies',
     benefit: 'Increase direct advertising sales, boost visitor dwell times, and secure lucrative premium sponsor leases'
@@ -49,14 +49,14 @@ export const HERO_SLIDES = [
 
 export const PRICING_PRODUCTS = {
   Corporate: {
-    productName: 'P2.5 Indoor Led Display',
-    pitch: 2.5,
-    ratePerSqm: 2800
-  },
-  Retail: {
     productName: 'P1.86 Indoor Led Display',
     pitch: 1.86,
     ratePerSqm: 3200
+  },
+  Retail: {
+    productName: 'P2.5 Indoor Led Display',
+    pitch: 2.5,
+    ratePerSqm: 2800
   },
   Outdoor: {
     productName: 'P4 Led Display Water Proof',
