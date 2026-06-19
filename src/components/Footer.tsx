@@ -11,7 +11,7 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
   };
 
   return (
-    <footer className="bg-black border-t border-white/5 text-slate-400 font-sans" aria-label="SGL Footer">
+    <footer className="bg-[#0b1120] border-t border-white/5 text-slate-400 font-sans" aria-label="SGL Footer">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           
@@ -38,15 +38,15 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
 
             <div className="space-y-2 text-xs">
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-cyan-400" />
+                <MapPin className="w-4 h-4 text-sky-400" />
                 <span>Level 32, Menara Petronas 2, KLCC, 50088 Kuala Lumpur, Malaysia</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-cyan-400" />
+                <Phone className="w-4 h-4 text-sky-400" />
                 <span>+60 (3) 2182-9000 (Consulting Bid Desk)</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-cyan-400" />
+                <Mail className="w-4 h-4 text-sky-400" />
                 <span>bids@sgldigital.com.my</span>
               </div>
             </div>
@@ -58,25 +58,25 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
             <div className="flex flex-col gap-2.5 text-xs text-slate-400">
               <button
                 onClick={() => onNavigateToSection('solutions-section')}
-                className="text-left hover:text-cyan-400 transition cursor-pointer"
+                className="text-left hover:text-sky-400 transition cursor-pointer"
               >
                 LED Hardware Products
               </button>
               <button
                 onClick={() => onNavigateToSection('calculator-section')}
-                className="text-left hover:text-cyan-400 transition cursor-pointer"
+                className="text-left hover:text-sky-400 transition cursor-pointer"
               >
                 Interactive Layout Calculator
               </button>
               <button
                 onClick={() => onNavigateToSection('cases-section')}
-                className="text-left hover:text-cyan-400 transition cursor-pointer"
+                className="text-left hover:text-sky-400 transition cursor-pointer"
               >
                 RM100k+ Commercial Portfolios
               </button>
               <button
                 onClick={() => onNavigateToSection('tech-section')}
-                className="text-left hover:text-cyan-400 transition cursor-pointer"
+                className="text-left hover:text-sky-400 transition cursor-pointer"
               >
                 Common Cathode Engineering
               </button>
@@ -86,10 +86,10 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
           {/* Column C: Technical index status values (Col-span 4) */}
           <div className="md:col-span-4 space-y-4">
             <h4 className="font-display font-bold text-xs text-white uppercase tracking-[0.2em]">Technical Indices Tracker</h4>
-            <div className="space-y-3.5 bg-white/[0.01] border border-white/10 p-4 rounded-none text-xs">
+            <div className="space-y-3.5 bg-white/[0.01] border border-white/8 p-4 rounded-none text-xs">
               <div className="flex justify-between">
                 <span className="text-slate-500 font-semibold uppercase font-sans text-[9px] tracking-wider">LED Refresh Index:</span>
-                <span className="font-mono text-[#22d3ee] font-bold">7,680 Hz Cinema</span>
+                <span className="font-mono text-sky-400 font-bold">7,680 Hz Cinema</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500 font-semibold uppercase font-sans text-[9px] tracking-wider">Power Saving Tech:</span>
@@ -111,12 +111,12 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
           </p>
           <button
             onClick={handleScrollToTop}
-            className="flex items-center gap-1.5 px-3 py-1.5 border border-white/10 bg-transparent hover:border-white rounded-none text-slate-300 hover:text-white cursor-pointer transition text-[10px] uppercase font-bold font-mono tracking-widest"
+            className="flex items-center gap-1.5 px-3 py-1.5 border border-white/8 bg-transparent hover:border-white rounded-none text-slate-300 hover:text-white cursor-pointer transition text-[10px] uppercase font-bold font-mono tracking-widest"
             aria-label="Scroll to top of the page"
             id="footer-back-to-top"
           >
             Back to Top
-            <ArrowUp className="w-3.5 h-3.5 text-cyan-400" />
+            <ArrowUp className="w-3.5 h-3.5 text-sky-400" />
           </button>
         </div>
 

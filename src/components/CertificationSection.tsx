@@ -40,14 +40,14 @@ export default function CertificationSection() {
     <section id="certifications-section" className="py-24 bg-transparent border-t border-white/5 relative overflow-hidden">
       {/* Subtle linear decorative elements */}
       <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-cyan-500/[0.01] blur-3xl rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-blue-600/[0.01] blur-3xl rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
         {/* Title Block */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="editorial-title-badge">
-            <Shield className="w-3 h-3 text-[#22d3ee]" /> CREDIBILITY & COMPLIANCE
+            <Shield className="w-3 h-3 text-sky-400" /> CREDIBILITY & COMPLIANCE
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-black tracking-tighter text-white uppercase leading-none">
             CERTIFICATIONS & STANDARDS
@@ -65,15 +65,15 @@ export default function CertificationSection() {
             return (
               <div 
                 key={cert.id}
-                className="bg-[#05070a]/90 border border-white/10 hover:border-cyan-400/50 p-6 flex flex-col justify-between transition-all duration-300 group rounded-none"
+                className="bg-[#111827] border border-white/8 hover:border-blue-500/30 p-6 flex flex-col justify-between transition-all duration-300 group rounded-none"
               >
                 <div>
                   {/* Icon & Badge Header */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-10 h-10 border border-white/15 bg-white/[0.02] flex items-center justify-center p-2 transition-colors group-hover:border-cyan-400/40 text-slate-400 group-hover:text-cyan-400">
+                    <div className="w-10 h-10 border border-white/10 bg-white/[0.02] flex items-center justify-center p-2 transition-colors group-hover:border-blue-500/30 text-slate-400 group-hover:text-sky-400">
                       <IconComponent className="w-full h-full stroke-[1.25]" />
                     </div>
-                    <span className="font-mono text-[8px] tracking-[0.2em] uppercase font-bold text-slate-500 group-hover:text-[#22d3ee] transition-colors border border-white/5 px-2 py-0.5">
+                    <span className="font-mono text-[8px] tracking-[0.2em] uppercase font-bold text-slate-500 group-hover:text-sky-400 transition-colors border border-white/5 px-2 py-0.5">
                       {cert.badgeText}
                     </span>
                   </div>
@@ -94,8 +94,8 @@ export default function CertificationSection() {
 
                 {/* Verification Check Badge */}
                 <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-                  <span className="font-mono text-[8px] text-[#22d3ee] font-bold tracking-widest uppercase flex items-center gap-1">
-                    <Check className="w-3 h-3 text-cyan-400" /> VERIFIED STANDARD
+                  <span className="font-mono text-[8px] text-sky-400 font-bold tracking-widest uppercase flex items-center gap-1">
+                    <Check className="w-3 h-3 text-sky-400" /> VERIFIED STANDARD
                   </span>
                   <span className="text-[8px] text-slate-600 font-mono">
                     SGL-REG-{cert.id.toUpperCase().slice(0,4)}

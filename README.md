@@ -1,11 +1,26 @@
-# SGL Lumina — Premium Digital LED Displays Portal
-### Architectural Project Document & System Schematic (AI-to-AI Integration Spec)
+# SGL LED Displays — Premium Digital LED Displays Portal
+### Architectural Project Document, Value-First Positioning & System Schematic (AI-to-AI Integration Spec)
 
-This document maps the complete file structure, business logic, visual specifications, and mathematical matrices of the **SGL Lumina** React application. It is designed so that other developers or downstream AI models (such as GPT-4, Claude, or Gemini) can instantly comprehend the app structure, visual design rules, and core calculations.
+This document maps the complete file structure, business logic, visual specifications, and mathematical matrices of the **SGL LED Displays** (SGL Lumina) React application. It is designed so that other developers or downstream AI models (such as GPT-4, Claude, or Gemini) can instantly comprehend the app structure, visual design rules, and core calculations.
 
 ---
 
-## 1. Visual Paradigm: The "Editorial Aesthetic"
+## 1. Value-First & Proudly Malaysian Positioning
+SGL has shifted from standard speculative hardware checklists to a **Value-First, Business-Outcome-Led** architecture optimized for Malaysian commercial landmarks, corporate boardrooms, public venues, and retail atriums.
+
+### A. Core Business Outcomes Offered:
+* **Enhanced Visitor Experience**: Transforming public spaces, workspaces, sanctuaries, and lobbies with custom-calibrated, color-balanced displays that maximize viewer dwell times and customer recall.
+* **Maximized Ad Revenue**: Direct support for commercial developers and premier malls to attract high-paying tenant leases and command gold-tier advertising rates via architectural ribbons or central atrium display systems.
+* **Reliable 24/7 Performance**: High-fidelity continuous uptime supported by energy-efficient Common Cathode technology (reducing thermal load by 14°C and power usage by up to 30%) with persistent camera-flicker-free visual clarity.
+
+### B. Malaysian Project Safeguard & Engineering Footprint:
+* **Kuala Lumpur HQ**: Main technical design and dispatch project desk.
+* **Nationwide Rigging Coverage**: Active mechanical rigging and architectural display installation teams operating in both region Peninsula (Semenyih) and East Malaysia (Borneo).
+* **48-Hour Technical Standby**: Dedicated localized maintenance response with structured 36-month local parts warranties, eliminating technical guesswork and import delays.
+
+---
+
+## 2. Visual Paradigm: The "Editorial Aesthetic"
 This application is styled with a custom, high-contrast **Editorial & Swiss-Modern Tech theme** built over **Tailwind CSS**. It rejects generic "AI slop" widgets in favor of rigorous typography, generous negative space, and architectural honesty.
 
 ### Key Design Pillars:
@@ -36,8 +51,9 @@ The codebase is organized in a highly modular pattern to prevent unified context
 ├── components/
 │         ├── Navbar.tsx                        # Global premium header displaying SGL PRO badge and enterprise-grade indicators
 │         ├── HeroSlider.tsx                    # Top immersive interactive presentation covering three custom projects with responsive timers
+│         ├── IndustriesSection.tsx             # "Who We Are & How We Drive Growth" core business deck + specific Malaysian sectors
 │         ├── ProductCatalog.tsx                # Hardware showcase presenting premium series (Corporate, Retail, Outdoor)
-│         ├── ProductCalculator.tsx             # Interactive physical simulator scale grid and pixel pitch dynamics
+│         ├── ProductCalculator.tsx             # Interactive physical simulator scale grid, pixel pitch dynamics, and local trust signals
 │         ├── CasePortfolio.tsx                 # Detailed engineering case study walkthrough with localized Malaysian projects
 │         ├── TechUSPSection.tsx                # Core specifications on Common Cathode, COB Protection, and 7680Hz drivers
 │         ├── CertificationSection.tsx          # Real standards alignment (ISO 9001:2015, CE safety, RoHS components)

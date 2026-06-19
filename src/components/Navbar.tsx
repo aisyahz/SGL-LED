@@ -35,7 +35,7 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#05070a]/95 backdrop-blur-md border-b border-white/10 py-4 shadow-xl'
+          ? 'bg-[#0b1120]/95 backdrop-blur-md border-b border-white/8 py-4 shadow-xl'
           : 'bg-transparent py-6 border-b border-white/5'
       }`}
     >
@@ -52,7 +52,7 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
             id="brand-logo-btn"
           >
             <div className="relative">
-              <div className="w-8 h-8 rounded-none border border-white/10 flex items-center justify-center overflow-hidden bg-white/5 shadow-[0_0_15px_rgba(34,211,238,0.15)]">
+              <div className="w-8 h-8 rounded-none border border-white/8 flex items-center justify-center overflow-hidden bg-white/5 shadow-[0_0_15px_rgba(37,99,235,0.1)]">
                 <img 
                   src={logoImg} 
                   alt="SGL Logo" 
@@ -64,7 +64,7 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
             <div className="text-left">
               <div className="flex items-center">
                 <span className="font-display font-extrabold text-lg tracking-widest text-white uppercase leading-none">SGL</span>
-                <span className="font-mono text-[9px] font-bold text-cyan-400 ml-1.5 border border-cyan-400/20 px-1 py-0.2 rounded-xs">PRO</span>
+                <span className="font-mono text-[9px] font-bold text-sky-400 ml-1.5 border border-sky-400/20 px-1 py-0.2 rounded-none">PRO</span>
               </div>
               <p className="font-mono text-[8px] tracking-[0.2em] text-slate-400 uppercase leading-none mt-0.5">Lumina Displays</p>
             </div>
@@ -79,9 +79,9 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
                   onClick={() => onNavigateToSection(item.id)}
                   className="flex items-center px-4 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-slate-300 hover:text-white transition-colors cursor-pointer relative group"
                 >
-                  <span className="font-mono text-[9px] mr-1 text-cyan-400/40 group-hover:text-cyan-400 transition-colors">//</span>
+                  <span className="font-mono text-[9px] mr-1 text-sky-400/40 group-hover:text-blue-500 transition-colors">//</span>
                   {item.label}
-                  <span className="absolute bottom-1 left-4 right-4 h-[1px] bg-cyan-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+                  <span className="absolute bottom-1 left-4 right-4 h-[1px] bg-blue-500 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
                 </button>
               );
             })}
@@ -121,7 +121,7 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-[#05070a]/98 border-b border-white/10 overflow-hidden"
+            className="md:hidden bg-[#111827]/98 border-b border-white/8 overflow-hidden"
           >
             <div className="px-6 py-6 space-y-3 max-w-7xl mx-auto">
               {navItems.map((item) => {
@@ -134,7 +134,7 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
                     }}
                     className="flex items-center gap-2 w-full text-left px-3 py-2.5 rounded-sm hover:bg-white/5 text-slate-300 hover:text-white text-[10px] uppercase tracking-[0.2em] transition font-medium"
                   >
-                    <span className="font-mono text-cyan-400">//</span>
+                    <span className="font-mono text-sky-400">//</span>
                     {item.label}
                   </button>
                 );
@@ -145,7 +145,7 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
                     setMobileMenuOpen(false);
                     setTimeout(onOpenConsultation, 200);
                   }}
-                  className="flex items-center justify-center gap-2 w-full bg-cyan-400 hover:bg-cyan-300 text-black text-[10px] font-bold uppercase tracking-[0.2em] py-3 rounded-sm transition"
+                  className="flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold uppercase tracking-[0.2em] py-3 rounded-none transition"
                 >
                   Consultation
                 </button>

@@ -69,9 +69,9 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
       </div>
 
       {/* Floating high-tech specifications overlay in bottom right corner */}
-      <div className="absolute bottom-12 right-6 md:right-12 z-20 hidden sm:block bg-[#05070a]/90 backdrop-blur-md border border-white/10 p-5 shadow-[0_0_35px_rgba(0,0,0,0.8)] max-w-xs rounded-xs">
-        <div className="flex items-center gap-2 font-mono text-[9px] text-[#22d3ee] tracking-[0.2em] uppercase mb-3">
-          <Sparkles className="w-3 h-3" /> Live Project Diagnostics
+      <div className="absolute bottom-12 right-6 md:right-12 z-20 hidden sm:block bg-[#111827]/90 backdrop-blur-md border border-white/8 p-5 shadow-[0_0_35px_rgba(0,0,0,0.8)] max-w-xs rounded-xs">
+        <div className="flex items-center gap-2 font-mono text-[9px] text-sky-400 tracking-[0.2em] uppercase mb-3">
+          <Sparkles className="w-3 h-3 text-sky-400" /> Live Project Diagnostics
         </div>
         <div className="space-y-2 text-xs">
           <div className="flex justify-between border-b border-white/5 pb-1.5">
@@ -84,7 +84,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
           </div>
           <div className="flex justify-between">
             <span className="text-slate-400">Core Tech:</span>
-            <span className="font-mono text-[#22d3ee] font-semibold">{currentSlide.meta.tech}</span>
+            <span className="font-mono text-sky-400 font-semibold">{currentSlide.meta.tech}</span>
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
                 transition={{ duration: 0.5 }}
                 className="editorial-title-badge"
               >
-                <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse mr-1"></span>
+                <span className="w-1.5 h-1.5 bg-sky-450 rounded-full animate-pulse mr-1"></span>
                 {currentSlide.badge}
               </motion.div>
             </AnimatePresence>
@@ -131,7 +131,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
                 animate={{ opacity: 0.9 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4, delay: 0.2 }}
-                className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.3em] text-[#22d3ee] uppercase ml-0.5 mb-6"
+                className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.3em] text-[#38bdf8] uppercase ml-0.5 mb-6"
               >
                 {currentSlide.tagline}
               </motion.p>
@@ -159,14 +159,14 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.5, delay: 0.35 }}
-                className="mb-8 border border-white/5 bg-[#05070a]/70 p-4 sm:p-5 max-w-xl rounded-none text-xs space-y-3 font-sans"
+                className="mb-8 border border-white/5 bg-[#111827]/70 p-4 sm:p-5 max-w-xl rounded-none text-xs space-y-3 font-sans"
               >
                 <div className="flex items-start gap-4">
-                  <span className="font-mono text-[8px] sm:text-[9px] text-[#22d3ee] tracking-wider uppercase shrink-0 w-24 pt-0.5">// TARGET SECTORS:</span>
+                  <span className="font-mono text-[8px] sm:text-[9px] text-[#38bdf8] tracking-wider uppercase shrink-0 w-24 pt-0.5">// TARGET SECTORS:</span>
                   <span className="text-slate-300 font-medium font-sans">{(currentSlide as any).industry}</span>
                 </div>
                 <div className="flex items-start gap-4">
-                  <span className="font-mono text-[8px] sm:text-[9px] text-[#22d3ee] tracking-wider uppercase shrink-0 w-24 pt-0.5">// PRACTICAL USE:</span>
+                  <span className="font-mono text-[8px] sm:text-[9px] text-[#38bdf8] tracking-wider uppercase shrink-0 w-24 pt-0.5">// PRACTICAL USE:</span>
                   <span className="text-slate-300 font-medium font-sans">{(currentSlide as any).useCase}</span>
                 </div>
                 <div className="flex items-start gap-4 leading-relaxed">
@@ -214,7 +214,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
       <div className="absolute bottom-8 left-6 sm:left-8 md:left-12 z-20 flex items-center gap-3">
         <button
           onClick={handlePrev}
-          className="p-2 border border-white/10 bg-[#05070a]/80 hover:bg-white hover:text-black hover:border-white transition-all text-white rounded-none cursor-pointer"
+          className="p-2 border border-white/8 bg-[#111827]/80 hover:bg-white hover:text-black hover:border-white transition-all text-white rounded-none cursor-pointer"
           aria-label="Previous image background"
           id="hero-prev-btn"
         >
@@ -222,7 +222,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
         </button>
         <button
           onClick={handleNext}
-          className="p-2 border border-white/10 bg-[#05070a]/80 hover:bg-white hover:text-black hover:border-white transition-all text-white rounded-none cursor-pointer"
+          className="p-2 border border-white/8 bg-[#111827]/80 hover:bg-white hover:text-black hover:border-white transition-all text-white rounded-none cursor-pointer"
           aria-label="Next image background"
           id="hero-next-btn"
         >
@@ -241,7 +241,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
             >
               <div className="relative w-8 h-1 bg-white/10 rounded-none overflow-hidden">
                 <div
-                  className={`absolute left-0 top-0 h-full bg-cyan-400 transition-all ${
+                  className={`absolute left-0 top-0 h-full bg-sky-400 transition-all ${
                     idx === index ? 'w-full duration-[7000ms] ease-linear' : 'w-0'
                   }`}
                 />
@@ -252,7 +252,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
       </div>
 
       {/* Side Ambient Glowing Lines */}
-      <div className="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-brand-cyan/20 to-transparent pointer-events-none" />
+      <div className="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-blue-600/20 to-transparent pointer-events-none" />
     </div>
   );
 }

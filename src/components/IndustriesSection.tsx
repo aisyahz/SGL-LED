@@ -1,4 +1,5 @@
 import { Building2, ShoppingBag, Utensils, GraduationCap, Church, Music } from 'lucide-react';
+import SectionHeader from './ui/SectionHeader';
 
 export default function IndustriesSection() {
   const industries = [
@@ -49,31 +50,30 @@ export default function IndustriesSection() {
   return (
     <section id="industries-section" className="py-24 bg-transparent border-t border-white/5 relative overflow-hidden">
       {/* Decorative hairline line grids */}
-      <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/10 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/10 to-transparent" />
       
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
         {/* Editorial Heading Structure with Core Business Answers */}
         <div className="mb-20">
-          <div className="editorial-title-badge mb-4">
-            <span className="w-1.5 h-1.5 bg-[#22d3ee] rounded-full mr-1.5 inline-block"></span>
-            SGL CORE SOLUTONS DECK
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-black tracking-tighter text-white uppercase leading-none mb-10 text-left">
-            Who We Are & How We Drive Growth
-          </h2>
+          <SectionHeader
+            badgeText="SGL CORE SOLUTIONS DECK"
+            title="Who We Are & How We Drive Growth"
+            align="left"
+            className="mb-8"
+          />
           
           {/* Business Core Answers Grid to engage non-technical decision makers instantly */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-6 sm:p-8 bg-[#05070a]/90 border border-white/10 mb-16 rounded-none text-left">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-6 sm:p-8 bg-[#111827] border border-white/8 mb-16 rounded-none text-left">
             <div className="space-y-3">
-              <span className="font-mono text-[9px] text-[#22d3ee] font-bold tracking-[0.2em] block uppercase">// 1. WHAT DOES SGL DO?</span>
+              <span className="font-mono text-[9px] text-sky-400 font-bold tracking-[0.2em] block uppercase">// 1. WHAT DOES SGL DO?</span>
               <h3 className="font-display font-black text-sm text-white uppercase tracking-tight">Spectacular Custom LED Spaces</h3>
               <p className="text-xs text-slate-400 leading-relaxed font-sans">
                 SGL designs, supplies, and installs high-performance digital displays. We manage projects of any budget range (from premium reception screens to massive building crown boards valued from RM50,000 to RM500,000+), utilizing safety-certified structural brackets.
               </p>
             </div>
             <div className="space-y-3 border-t md:border-t-0 md:border-l border-white/5 pt-5 md:pt-0 md:pl-8">
-              <span className="font-mono text-[9px] text-[#22d3ee] font-bold tracking-[0.2em] block uppercase">// 2. WHO IS IT FOR?</span>
+              <span className="font-mono text-[9px] text-sky-400 font-bold tracking-[0.2em] block uppercase">// 2. WHO IS IT FOR?</span>
               <h3 className="font-display font-black text-sm text-white uppercase tracking-tight">Malaysian Commercial Landmark Teams</h3>
               <p className="text-xs text-slate-400 leading-relaxed font-sans">
                 Our screens are optimized for shopping malls, churches, restaurants, universities, event spaces, corporate boardrooms, and property developers looking to attract high premium tenant leases and maximize viewer footfall.
@@ -88,16 +88,13 @@ export default function IndustriesSection() {
             </div>
           </div>
 
-          <div className="editorial-title-badge mb-4">
-            <span className="w-1.5 h-1.5 bg-[#22d3ee] rounded-full mr-1.5 inline-block"></span>
-            SECTOR CODES
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black tracking-tighter text-white uppercase leading-none">
-            INDUSTRIES WE SERVE
-          </h2>
-          <p className="mt-4 text-xs sm:text-sm text-slate-400 font-sans leading-relaxed max-w-xl text-left">
-            SGL designs and deploys optimized physical LED screen hardware tailored to the distinct acoustic, visual, load-bearing, and heat conditions of premium commercial sectors in Malaysia.
-          </p>
+          <SectionHeader
+            badgeText="SECTOR CODES"
+            title="INDUSTRIES WE SERVE"
+            description="SGL designs and deploys optimized physical LED screen hardware tailored to the distinct acoustic, visual, load-bearing, and heat conditions of premium commercial sectors in Malaysia."
+            align="left"
+            className="mb-12"
+          />
         </div>
 
         {/* Swiss-Modern Grid */}
@@ -107,10 +104,10 @@ export default function IndustriesSection() {
             return (
               <div 
                 key={ind.id}
-                className="bg-[#05070a]/90 border border-white/10 p-8 flex flex-col justify-between transition-all duration-350 cursor-default group rounded-none hover:border-cyan-450 hover:bg-[#070a0f] relative overflow-hidden"
+                className="bg-[#111827] border border-white/8 p-8 flex flex-col justify-between transition-all duration-350 cursor-default group rounded-none hover:border-blue-500/50 hover:bg-[#1f2937]/50 relative overflow-hidden"
               >
                 {/* Thin top accent border animated on hover */}
-                <div className="absolute left-0 top-0 right-0 h-[1.5px] bg-transparent group-hover:bg-[#22d3ee] transition-all duration-350" />
+                <div className="absolute left-0 top-0 right-0 h-[1.5px] bg-transparent group-hover:bg-blue-500 transition-all duration-350" />
                 
                 <div>
                   {/* Top Industry Identification Bracket */}
@@ -118,13 +115,13 @@ export default function IndustriesSection() {
                     <span className="font-mono text-[9px] text-slate-500 font-bold">
                       // SGL-SEC-0{index + 1}
                     </span>
-                    <span className="font-mono text-[8px] tracking-[0.2em] font-semibold text-slate-400 group-hover:text-cyan-400 transition-colors border border-white/5 px-2 py-0.5 uppercase">
+                    <span className="font-mono text-[8px] tracking-[0.2em] font-semibold text-slate-400 group-hover:text-sky-400 transition-colors border border-white/5 px-2 py-0.5 uppercase">
                       {ind.tag}
                     </span>
                   </div>
 
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="p-3 border border-white/10 bg-white/[0.01] group-hover:border-cyan-400/30 text-slate-400 group-hover:text-[#22d3ee] transition-colors shrink-0">
+                    <div className="p-3 border border-white/8 bg-white/[0.01] group-hover:border-blue-500/30 text-slate-400 group-hover:text-sky-450 transition-colors shrink-0">
                       <IconComponent className="w-5 h-5 stroke-[1.25]" />
                     </div>
                     <div>
@@ -140,7 +137,7 @@ export default function IndustriesSection() {
                 </div>
 
                 <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-end">
-                  <span className="font-mono text-[9px] text-slate-600 group-hover:text-[#22d3ee] transition-colors uppercase tracking-widest">
+                  <span className="font-mono text-[9px] text-slate-600 group-hover:text-sky-400 transition-colors uppercase tracking-widest">
                     EXPLORE SPECS →
                   </span>
                 </div>

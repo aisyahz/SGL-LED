@@ -91,7 +91,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ type: 'spring', duration: 0.5 }}
-            className="relative bg-[#05070a] border border-white/10 rounded-none shadow-2xl w-full max-w-3xl overflow-hidden z-10"
+            className="relative bg-[#111827] border border-white/8 rounded-none shadow-2xl w-full max-w-3xl overflow-hidden z-10"
           >
             
             {/* Top Close Actuator button */}
@@ -106,14 +106,14 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
 
             {/* Left accent column / Top banner for branding */}
             <div className="bg-white/[0.01] border-b border-white/10 p-6 flex items-center gap-3">
-              <div className="bg-white/5 p-2.5 rounded-none border border-white/10">
-                <PhoneCall className="w-5 h-5 text-cyan-400" />
+              <div className="bg-white/5 p-2.5 rounded-none border border-white/8">
+                <PhoneCall className="w-5 h-5 text-sky-400" />
               </div>
               <div>
                 <h3 className="font-display font-black text-lg text-white uppercase tracking-tight">
                   SGL Enterprise Layout Planner
                 </h3>
-                <p className="font-mono text-[8px] text-[#22d3ee] uppercase tracking-[0.2em] leading-none mt-1 font-bold">
+                <p className="font-mono text-[8px] text-sky-400 uppercase tracking-[0.2em] leading-none mt-1 font-bold">
                   Request Commercial RFQ Bid — RM100k+ Scale Installations
                 </p>
               </div>
@@ -130,8 +130,8 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                     
                     {/* Column A: Contact Details */}
                     <div className="space-y-4">
-                      <h4 className="font-display font-bold text-xs text-cyan-400 tracking-[0.15em] uppercase border-b border-white/5 pb-1.5 flex items-center gap-2">
-                        <FileText className="w-4 h-4 text-cyan-400" /> Client Corporate Identity
+                      <h4 className="font-display font-bold text-xs text-sky-400 tracking-[0.15em] uppercase border-b border-white/5 pb-1.5 flex items-center gap-2">
+                        <FileText className="w-4 h-4 text-sky-400" /> Client Corporate Identity
                       </h4>
                       
                       {/* Name input */}
@@ -146,7 +146,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           placeholder="e.g. Saisyah Zainal"
-                          className="w-full bg-black border border-white/10 focus:border-cyan-400 px-3 py-2.5 rounded-none text-xs text-white placeholder-slate-600 focus:outline-none"
+                          className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white placeholder-slate-650 focus:outline-none"
                         />
                       </div>
 
@@ -162,7 +162,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                           placeholder="e.g. SGL Malaysia Sdn Bhd"
-                          className="w-full bg-black border border-white/10 focus:border-cyan-400 px-3 py-2.5 rounded-none text-xs text-white placeholder-slate-600 focus:outline-none"
+                          className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white placeholder-slate-650 focus:outline-none"
                         />
                       </div>
 
@@ -178,7 +178,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="e.g. partner@sgl.com"
-                          className="w-full bg-black border border-white/10 focus:border-cyan-400 px-3 py-2.5 rounded-none text-xs text-white placeholder-slate-600 focus:outline-none"
+                          className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white placeholder-slate-650 focus:outline-none"
                         />
                       </div>
 
@@ -193,7 +193,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="e.g. +60 12-345 6789"
-                          className="w-full bg-black border border-white/10 focus:border-cyan-400 px-3 py-2.5 rounded-none text-xs text-white placeholder-slate-600 focus:outline-none"
+                          className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white placeholder-slate-650 focus:outline-none"
                         />
                       </div>
 
@@ -201,8 +201,8 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
 
                     {/* Column B: Layout Specification & Quote Prefills */}
                     <div className="space-y-4">
-                      <h4 className="font-display font-bold text-xs text-cyan-400 tracking-[0.15em] uppercase border-b border-white/5 pb-1.5 flex items-center gap-2">
-                        <Calculator className="w-4 h-4 text-cyan-400" /> Screen layout Scope Settings
+                      <h4 className="font-display font-bold text-xs text-sky-400 tracking-[0.15em] uppercase border-b border-white/5 pb-1.5 flex items-center gap-2">
+                        <Calculator className="w-4 h-4 text-sky-400" /> Screen layout Scope Settings
                       </h4>
 
                       {/* Application Selector */}
@@ -213,7 +213,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                         <select
                           value={formData.projectType}
                           onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                          className="w-full bg-black border border-white/10 focus:border-cyan-400 px-3 py-2.5 rounded-none text-xs text-white focus:outline-none"
+                          className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white focus:outline-none"
                           aria-label="Product series selector"
                         >
                           <option value="Corporate">Corporate Lobby series (COB Onyx)</option>
@@ -236,7 +236,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                             step="0.5"
                             value={formData.width}
                             onChange={(e) => setFormData({ ...formData, width: parseFloat(e.target.value) || 1.0 })}
-                            className="w-full bg-black border border-white/10 focus:border-cyan-400 px-3 py-2.5 rounded-none text-xs text-white focus:outline-none font-mono"
+                            className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white focus:outline-none font-mono"
                           />
                         </div>
                         <div>
@@ -251,16 +251,16 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                             step="0.5"
                             value={formData.height}
                             onChange={(e) => setFormData({ ...formData, height: parseFloat(e.target.value) || 1.0 })}
-                            className="w-full bg-black border border-white/10 focus:border-cyan-400 px-3 py-2.5 rounded-none text-xs text-white focus:outline-none font-mono"
+                            className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white focus:outline-none font-mono"
                           />
                         </div>
                       </div>
 
                       {/* Live Valuation Estimate block */}
-                      <div className="bg-[#05070a] p-5 border border-white/10 rounded-none relative overflow-hidden">
-                        <span className="block text-[9px] text-[#22d3ee] font-mono tracking-[0.2em] uppercase mb-1">LIVE ESTIMATED VALUE SHEET</span>
+                      <div className="bg-[#0b1120] p-5 border border-white/8 rounded-none relative overflow-hidden">
+                        <span className="block text-[9px] text-[#38bdf8] font-mono tracking-[0.2em] uppercase mb-1">LIVE ESTIMATED VALUE SHEET</span>
                         <div className="flex justify-between items-baseline">
-                          <span className="font-display font-black text-2xl text-cyan-400 tracking-tighter">
+                          <span className="font-display font-black text-2xl text-white tracking-tighter">
                             {livePriceEstimate}
                           </span>
                           <span className="font-mono text-[8px] text-slate-500 font-bold uppercase tracking-wider">
@@ -268,7 +268,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                           </span>
                         </div>
                         <p className="text-[10px] text-slate-450 text-slate-400 leading-normal mt-2 flex items-center gap-1.5 border-t border-white/5 pt-2">
-                          <Zap className="w-3.5 h-3.5 text-cyan-400" /> Calculates based on core sizing footprint & structural parameters.
+                          <Zap className="w-3.5 h-3.5 text-blue-500" /> Calculates based on core sizing footprint & structural parameters.
                         </p>
                       </div>
 
@@ -287,7 +287,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Specify installation requirements (e.g., floor mounting depth, curving angle, custom brackets)..."
-                      className="w-full bg-black border border-white/10 focus:border-cyan-400 px-3 py-2.5 rounded-none text-xs text-white placeholder-slate-600 focus:outline-none font-sans"
+                      className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white placeholder-slate-650 focus:outline-none font-sans"
                     />
                   </div>
 
@@ -317,14 +317,14 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                 </form>
               ) : (
                 <div className="py-12 text-center max-w-md mx-auto space-y-6">
-                  <div className="inline-flex p-4 bg-cyan-400/10 border border-cyan-400/30 rounded-none text-cyan-400 mb-2">
+                  <div className="inline-flex p-4 bg-blue-600/15 border border-blue-500/20 rounded-none text-sky-400 mb-2">
                     <CheckCircle className="w-12 h-12" />
                   </div>
                   <h3 className="font-display font-black text-2xl text-white uppercase tracking-tight leading-none mb-2">
                     Project Plan Compiled!
                   </h3>
                   <p className="text-xs text-slate-300 font-sans leading-relaxed">
-                    Thank you, <strong className="text-white">{formData.name}</strong>. SGL has locked your custom plan for <strong className="text-white">{formData.company}</strong> estimated at <strong className="text-cyan-400">{livePriceEstimate}</strong>.
+                    Thank you, <strong className="text-white">{formData.name}</strong>. SGL has locked your custom plan for <strong className="text-white">{formData.company}</strong> estimated at <strong className="text-sky-400">{livePriceEstimate}</strong>.
                   </p>
                   <p className="text-xs text-slate-400 font-sans leading-normal border-t border-white/5 pt-4">
                     Our Kuala Lumpur senior bidding architect will telephone you within 4 business hours to finalize structures and physical scope variables.

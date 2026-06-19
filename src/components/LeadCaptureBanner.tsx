@@ -1,4 +1,6 @@
-import { PhoneCall, Sparkles, Sliders, ArrowRight } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
+import CTAButton from './ui/CTAButton';
+import Button from './ui/Button';
 
 interface LeadCaptureBannerProps {
   onOpenConsultation: () => void;
@@ -6,16 +8,16 @@ interface LeadCaptureBannerProps {
 
 export default function LeadCaptureBanner({ onOpenConsultation }: LeadCaptureBannerProps) {
   return (
-    <section className="py-20 bg-black border-t border-white/5 relative overflow-hidden">
+    <section className="py-20 bg-[#111827] border-t border-white/5 relative overflow-hidden">
       
       {/* Decorative linear technology light rails */}
-      <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-blue-600/20 to-transparent" />
 
       <div className="max-w-5xl mx-auto px-6 sm:px-8 relative z-10 text-center space-y-6">
         
         {/* Decorative Badge icon */}
-        <div className="inline-flex p-3 bg-cyan-400/10 border border-cyan-400/25 rounded-none text-cyan-400">
+        <div className="inline-flex p-3 bg-blue-600/10 border border-blue-500/25 rounded-none text-sky-400">
           <Sparkles className="w-5 h-5 animate-pulse" />
         </div>
 
@@ -28,26 +30,28 @@ export default function LeadCaptureBanner({ onOpenConsultation }: LeadCaptureBan
           From multi-storey curved ribbons hanging in premium shopping atriums to heavy bulletproof weatherproof displays above congested metropolitan crossings—SGL executes serious, high-investment, architectural commercial LED.
         </p>
 
-        {/* Action Button layout row */}
+        {/* Action Button layout row using centralized Design System components */}
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
+          <CTAButton
             onClick={onOpenConsultation}
-            className="w-full sm:w-auto px-8 py-3.5 bg-white text-black font-display text-[10px] font-bold uppercase tracking-[0.2em] rounded-none cursor-pointer hover:bg-slate-200 transition-all"
+            pulse={true}
             id="bottom-cta-consult-btn"
           >
             Request Bidding Proposal
-          </button>
+          </CTAButton>
           
-          <button
+          <Button
+            variant="outline"
+            size="lg"
             onClick={() => {
               const el = document.getElementById('tech-section');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="w-full sm:w-auto px-8 py-3.5 bg-transparent border border-white/10 hover:border-white text-white font-display text-[10px] font-bold uppercase tracking-[0.2em] rounded-none cursor-pointer transition-all"
             id="bottom-cta-learn-btn"
+            className="w-full sm:w-auto h-[54px] md:h-[54px]"
           >
             Review Technical Specs
-          </button>
+          </Button>
         </div>
 
         {/* Floating security indicators */}
@@ -59,3 +63,4 @@ export default function LeadCaptureBanner({ onOpenConsultation }: LeadCaptureBan
     </section>
   );
 }
+

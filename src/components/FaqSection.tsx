@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { HelpCircle } from 'lucide-react';
+import SectionHeader from './ui/SectionHeader';
+import FAQItem from './ui/FAQItem';
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -35,64 +37,33 @@ export default function FaqSection() {
     <section id="faq-section" className="py-24 bg-transparent border-t border-white/5 relative overflow-hidden">
       {/* Decorative linear grids */}
       <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-      <div className="absolute right-0 bottom-0 w-80 h-80 bg-cyan-500/[0.01] blur-3xl rounded-full pointer-events-none" />
+      <div className="absolute right-0 bottom-0 w-80 h-80 bg-blue-600/[0.01] blur-3xl rounded-full pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
-        {/* Editorial Heading Section */}
-        <div className="text-center mb-16">
-          <div className="editorial-title-badge mb-4 mx-auto inline-flex">
-            <HelpCircle className="w-3.5 h-3.5 text-cyan-400 mr-1" /> KNOWLEDGE DECK
-          </div>
-          <h2 className="text-3xl md:text-5xl font-display font-black tracking-tighter text-white uppercase leading-none">
-            FREQUENTLY ASKED QUESTIONS
-          </h2>
-          <p className="mt-4 text-xs text-slate-500 font-mono uppercase tracking-widest">
-            SGL ENGINEERING SPECIFICATIONS & SERVICE MODEL
-          </p>
-        </div>
+        {/* Editorial Heading Section using SectionHeader */}
+        <SectionHeader
+          badgeText="KNOWLEDGE DECK"
+          icon={<HelpCircle className="w-3.5 h-3.5 text-sky-400" />}
+          title="FREQUENTLY ASKED QUESTIONS"
+          description="SGL ENGINEERING SPECIFICATIONS & SERVICE MODEL"
+        />
 
         {/* Minimal Accordion List */}
         <div className="space-y-4">
-          {faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
-            return (
-              <div 
-                key={idx}
-                className="border border-white/10 bg-[#05070a]/90 rounded-none transition-all duration-300"
-              >
-                {/* Accordion Trigger */}
-                <button
-                  onClick={() => handleToggle(idx)}
-                  className="w-full text-left p-6 sm:p-8 flex justify-between items-center gap-4 cursor-pointer focus:outline-none group hover:bg-white/[0.01]"
-                  id={`faq-trigger-${idx}`}
-                >
-                  <span className="font-display font-black text-sm sm:text-base md:text-lg text-white uppercase tracking-tight group-hover:text-cyan-400 transition-colors">
-                    {faq.question}
-                  </span>
-                  <div className="p-1.5 border border-white/10 bg-white/[0.02] text-slate-405 group-hover:border-cyan-400/30 group-hover:text-[#22d3ee] transition-colors shrink-0">
-                    {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                  </div>
-                </button>
-
-                {/* Animated Collapsible Answer Block */}
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isOpen ? 'max-h-[300px] border-t border-white/5 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
-                  }`}
-                >
-                  <div className="p-6 sm:p-8 bg-[#070a0e]/50">
-                    <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          {faqs.map((faq, idx) => (
+            <FAQItem
+              key={idx}
+              question={faq.question}
+              answer={faq.answer}
+              isOpen={openIndex === idx}
+              onToggle={() => handleToggle(idx)}
+            />
+          ))}
         </div>
 
       </div>
     </section>
   );
 }
+

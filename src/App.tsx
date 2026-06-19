@@ -47,13 +47,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#05070a] text-slate-100 flex flex-col justify-between selection:bg-brand-cyan/35 selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#0b1120] text-slate-100 flex flex-col justify-between selection:bg-brand-blue/35 selection:text-white relative overflow-x-hidden">
       {/* Background Ambient Glows */}
       <div className="fixed top-[-10%] right-[-10%] w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
-      <div className="fixed bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-900/5 rounded-full blur-[100px] pointer-events-none z-0"></div>
+      <div className="fixed bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-900/5 rounded-full blur-[100px] pointer-events-none z-0"></div>
 
       {/* Flagship brand ambient light flare line */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent z-40 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent z-40 pointer-events-none"></div>
 
       {/* Decorative Vertical Text */}
       <div className="fixed right-4 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center space-y-4 opacity-30 pointer-events-none z-40 select-none">
@@ -111,7 +111,7 @@ export default function App() {
         href="https://wa.me/60123456789"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 left-6 z-50 flex items-center gap-2 px-4 py-2.5 bg-[#05070a] border border-emerald-500/30 hover:border-emerald-400 text-white font-mono text-[9px] tracking-[0.2em] uppercase transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.15)] group rounded-none"
+        className="fixed bottom-6 left-6 z-50 flex items-center gap-2 px-4 py-2.5 bg-[#111827] border border-emerald-500/30 hover:border-emerald-400 text-white font-mono text-[9px] tracking-[0.2em] uppercase transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.15)] group rounded-none"
         aria-label="Direct SGL WhatsApp Engineering Contact"
       >
         <span className="relative flex h-2 w-2">

@@ -88,14 +88,14 @@ export default function ProductCalculator() {
 
   return (
     <section id="calculator-section" className="py-24 bg-transparent border-t border-white/5 relative">
-      <div className="absolute inset-0 bg-gradient-to-tr from-cyan-400/2 via-transparent to-blue-600/3 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/2 via-transparent to-indigo-600/3 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
         {/* Title Block */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="editorial-title-badge">
-            <Sliders className="w-3 h-3" /> NATIONWIDE PLANNING DESK
+            <Sliders className="w-3 h-3 text-sky-450" /> NATIONWIDE PLANNING DESK
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-black tracking-tighter text-white uppercase leading-none">
             Malaysian Layout & Pitch Calculator
@@ -110,10 +110,10 @@ export default function ProductCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* COLUMN 1: Inputs & Parameters (Col-span 5) */}
-          <div className="lg:col-span-5 bg-[#05070a]/80 border border-white/10 p-6 sm:p-8 rounded-none shadow-xl space-y-6">
+          <div className="lg:col-span-5 bg-[#111827] border border-white/8 p-6 sm:p-8 rounded-none shadow-xl space-y-6">
             <div>
               <h3 className="font-display font-bold text-xs text-white uppercase tracking-[0.2em] mb-4 border-b border-white/10 pb-2 flex items-center gap-2">
-                <span className="text-cyan-400 font-mono text-xs font-bold">[01]</span>
+                <span className="text-sky-400 font-mono text-xs font-bold">[01]</span>
                 Project Application Setup
               </h3>
               
@@ -137,7 +137,7 @@ export default function ProductCalculator() {
 
             <div>
               <h3 className="font-display font-bold text-xs text-white uppercase tracking-[0.2em] mb-4 border-b border-white/10 pb-2 flex items-center gap-2">
-                <span className="text-cyan-400 font-mono text-xs font-bold">[02]</span>
+                <span className="text-sky-400 font-mono text-xs font-bold">[02]</span>
                 Choose Pixel Pitch (mm)
               </h3>
               <div className="grid grid-cols-4 gap-2">
@@ -147,8 +147,8 @@ export default function ProductCalculator() {
                     onClick={() => setPitch(p)}
                     className={`py-2 rounded-none font-mono text-xs font-bold border cursor-pointer transition-all ${
                       pitch === p
-                        ? 'bg-cyan-400/20 border-cyan-400 text-cyan-400'
-                        : 'bg-transparent border-white/10 text-slate-400 hover:text-white hover:border-white/30'
+                        ? 'bg-blue-600/15 border-blue-500 text-sky-400'
+                        : 'bg-transparent border-white/10 text-slate-400 hover:text-white hover:border-white/20'
                     }`}
                   >
                     P{p}
@@ -156,14 +156,14 @@ export default function ProductCalculator() {
                 ))}
               </div>
               <p className="mt-2.5 text-[10px] text-slate-400 font-sans flex items-center gap-1.5 leading-normal">
-                <Info className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                <Info className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
                 Pixel pitch defines physical distance between diodes. Narrower pitch increases resolution.
               </p>
             </div>
 
             <div>
               <h3 className="font-display font-bold text-xs text-white uppercase tracking-[0.2em] mb-4 border-b border-white/10 pb-2 flex items-center gap-2">
-                <span className="text-cyan-400 font-mono text-xs font-bold">[03]</span>
+                <span className="text-sky-400 font-mono text-xs font-bold">[03]</span>
                 Physical Dimensions
               </h3>
               <div className="space-y-4">
@@ -181,7 +181,7 @@ export default function ProductCalculator() {
                     step="0.1"
                     value={width}
                     onChange={(e) => setWidth(parseFloat(e.target.value))}
-                    className="w-full accent-cyan-400 cursor-pointer h-[2px] bg-white/10"
+                    className="w-full accent-blue-600 cursor-pointer h-[2px] bg-white/10"
                     aria-label="Screen Width in meters"
                   />
                 </div>
@@ -199,7 +199,7 @@ export default function ProductCalculator() {
                     step="0.1"
                     value={height}
                     onChange={(e) => setHeight(parseFloat(e.target.value))}
-                    className="w-full accent-cyan-400 cursor-pointer h-[2px] bg-white/10"
+                    className="w-full accent-blue-600 cursor-pointer h-[2px] bg-white/10"
                     aria-label="Screen Height in meters"
                   />
                 </div>
@@ -234,14 +234,14 @@ export default function ProductCalculator() {
           </div>
 
           {/* COLUMN 2: Schematic & Blueprint Scale Layout (Col-span 4) */}
-          <div className="lg:col-span-4 bg-[#05070a]/80 border border-white/10 p-6 sm:p-8 rounded-none shadow-xl flex flex-col h-full justify-between">
+          <div className="lg:col-span-4 bg-[#111827] border border-white/8 p-6 sm:p-8 rounded-none shadow-xl flex flex-col h-full justify-between">
             <div>
               <h3 className="font-display font-bold text-xs text-white uppercase tracking-[0.2em] mb-4 border-b border-white/10 pb-2 flex items-center justify-between">
                 <span className="flex items-center gap-2">
-                  <span className="text-cyan-400 font-mono text-xs font-bold">[04]</span>
+                  <span className="text-sky-400 font-mono text-xs font-bold">[04]</span>
                   Display Scale Diagram
                 </span>
-                <span className="font-mono text-[8px] text-cyan-400 uppercase tracking-widest border border-cyan-400/30 px-2 py-0.5 bg-cyan-400/10 rounded-none">
+                <span className="font-mono text-[8px] text-sky-400 uppercase tracking-widest border border-blue-500/30 px-2 py-0.5 bg-blue-600/5 rounded-none">
                   {width.toFixed(1)}mx{height.toFixed(1)}m
                 </span>
               </h3>
@@ -251,10 +251,10 @@ export default function ProductCalculator() {
             </div>
 
             {/* Simulated Schematic Stage */}
-            <div className="relative bg-white/[0.01] border border-white/10 h-[280px] rounded-none flex items-end justify-center p-6 mb-4 overflow-hidden led-reflection-glow">
+            <div className="relative bg-white/[0.01] border border-white/8 h-[280px] rounded-none flex items-end justify-center p-6 mb-4 overflow-hidden led-reflection-glow">
               
               {/* Floor grid horizontal reflection */}
-              <div className="absolute inset-x-0 bottom-0 h-[20%] bg-gradient-to-t from-cyan-400/15 to-transparent border-t border-white/5 pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-[20%] bg-gradient-to-t from-blue-600/10 to-transparent border-t border-white/5 pointer-events-none" />
               
               {/* Screen Boundary box representing exact aspect ratio preview */}
               <div className="relative flex flex-col justify-between items-center transition-all duration-300"
@@ -265,22 +265,22 @@ export default function ProductCalculator() {
                    }}
                >
                 {/* Visual LED Wall Grid background with Neon stroke */}
-                <div className="absolute inset-0 bg-[#05070a] border-2 rounded-none shadow-2xl transition-all border-cyan-400 flex flex-col items-center justify-center p-2 text-center select-none overflow-hidden"
+                <div className="absolute inset-0 bg-[#0B1120] border-2 rounded-none shadow-2xl transition-all border-blue-600 flex flex-col items-center justify-center p-2 text-center select-none overflow-hidden"
                      style={{
                        gridTemplateColumns: 'repeat(12, minmax(0, 1fr))',
-                       backgroundImage: 'radial-gradient(circle, rgba(34, 211, 238, 0.4) 1px, transparent 1px)',
+                       backgroundImage: 'radial-gradient(circle, rgba(37, 99, 213, 0.4) 1px, transparent 1px)',
                        backgroundSize: '7px 7px'
                      }}
                 >
                   {/* Subtle active screen core glow */}
-                  <div className="absolute inset-0 bg-cyan-400/10 blur-xl pointer-events-none" />
+                  <div className="absolute inset-0 bg-blue-500/10 blur-xl pointer-events-none" />
                   
                   {/* Overlay specification texts */}
                   <div className="relative z-10 space-y-1">
                     <p className="font-display font-extrabold text-[12px] md:text-[14px] text-white tracking-tight uppercase leading-none truncate">
                       SGL P{pitch}
                     </p>
-                    <p className="font-mono text-[9px] text-[#22d3ee] font-bold uppercase leading-none">
+                    <p className="font-mono text-[9px] text-sky-400 font-bold uppercase leading-none">
                       {specs.pixelsW} × {specs.pixelsH}
                     </p>
                   </div>
@@ -299,7 +299,7 @@ export default function ProductCalculator() {
                   <circle cx="50" cy="20" r="16" />
                   <path d="M50,42c-15.5,0-28,12.5-28,28v45c0,4.4,3.6,8,8,8h6v65c0,5.5,4.5,10,10,10h8c5.5,0,10-4.5,10-10v-65h6c4.4,0,8-3.6,8-8V70C78,54.5,65.5,42,50,42z" />
                 </svg>
-                <span className="font-mono text-[7px] text-slate-400 tracking-widest uppercase bg-[#05070a] px-1.5 py-0.5 border border-white/10 rounded-none mt-1">
+                <span className="font-mono text-[7px] text-slate-400 tracking-widest uppercase bg-[#111827] px-1.5 py-0.5 border border-white/8 rounded-none mt-1">
                   1.8m Human
                 </span>
               </div>
@@ -308,23 +308,23 @@ export default function ProductCalculator() {
             {/* Specs Category Banner */}
             <div className="bg-white/[0.02] border border-white/5 p-4 rounded-none text-center">
               <span className="font-sans text-[9px] tracking-widest text-slate-400 font-semibold uppercase block">RESOLUTION CLASSIFICATION</span>
-              <span className="font-display font-black text-xs text-cyan-400 tracking-[0.1em] uppercase block mt-1">
+              <span className="font-display font-black text-xs text-sky-400 tracking-[0.1em] uppercase block mt-1">
                 {specs.resolutionCategory}
               </span>
             </div>
           </div>
 
           {/* COLUMN 3: Real Calculated Specifications (Col-span 3) */}
-          <div className="lg:col-span-3 bg-[#05070a]/80 border border-white/10 p-6 sm:p-8 rounded-none shadow-xl space-y-6">
+          <div className="lg:col-span-3 bg-[#111827] border border-white/8 p-6 sm:p-8 rounded-none shadow-xl space-y-6">
             <h3 className="font-display font-bold text-xs text-white uppercase tracking-[0.2em] border-b border-white/10 pb-2 flex items-center gap-2">
-              <span className="text-cyan-400 font-mono text-xs font-bold">[05]</span>
+              <span className="text-sky-400 font-mono text-xs font-bold">[05]</span>
               Dynamic Outputs
             </h3>
 
             {/* Area Box */}
             <div className="space-y-4">
               <div className="p-3 bg-white/[0.02] border border-white/5 rounded-none flex items-center gap-3">
-                <div className="p-2.5 bg-white/5 rounded-none border border-white/10 text-cyan-400">
+                <div className="p-2.5 bg-white/5 rounded-none border border-white/10 text-sky-400">
                   <Maximize2 className="w-5 h-5" />
                 </div>
                 <div>
@@ -335,7 +335,7 @@ export default function ProductCalculator() {
 
               {/* Total Pixel Count Box */}
               <div className="p-3 bg-white/[0.02] border border-white/5 rounded-none flex items-center gap-3">
-                <div className="p-2.5 bg-white/5 rounded-none border border-white/10 text-cyan-400">
+                <div className="p-2.5 bg-white/5 rounded-none border border-white/10 text-sky-400">
                   <Eye className="w-5 h-5" />
                 </div>
                 <div>
@@ -346,7 +346,7 @@ export default function ProductCalculator() {
 
               {/* Active Dry weight Box */}
               <div className="p-3 bg-white/[0.02] border border-white/5 rounded-none flex items-center gap-3">
-                <div className="p-2.5 bg-white/5 rounded-none border border-white/10 text-cyan-400">
+                <div className="p-2.5 bg-white/5 rounded-none border border-white/10 text-sky-400">
                   <Weight className="w-5 h-5" />
                 </div>
                 <div>
@@ -357,7 +357,7 @@ export default function ProductCalculator() {
 
               {/* Electric power consumption requirement */}
               <div className="p-3 bg-white/[0.02] border border-white/5 rounded-none flex items-center gap-3">
-                <div className="p-2.5 bg-white/5 rounded-none border border-white/10 text-cyan-400">
+                <div className="p-2.5 bg-white/5 rounded-none border border-white/10 text-sky-400">
                   <Zap className="w-5 h-5" />
                 </div>
                 <div>
@@ -370,7 +370,7 @@ export default function ProductCalculator() {
 
             {/* Optimal safe viewing distance rules */}
             <div className="p-5 bg-white/[0.02] border border-white/5 rounded-none">
-              <span className="font-display font-bold text-[10px] text-cyan-400 tracking-[0.2em] uppercase block mb-3 border-b border-white/5 pb-2">Viewing Distances</span>
+              <span className="font-display font-bold text-[10px] text-sky-400 tracking-[0.2em] uppercase block mb-3 border-b border-white/5 pb-2">Viewing Distances</span>
               <div className="space-y-2">
                 <div className="flex justify-between text-xs">
                   <span className="text-slate-400">Min safe distance:</span>
@@ -378,7 +378,7 @@ export default function ProductCalculator() {
                 </div>
                 <div className="flex justify-between text-xs pb-1.5 border-b border-white/5">
                   <span className="text-slate-400">Sweet-spot:</span>
-                  <span className="font-mono text-cyan-400 font-bold">{specs.sweetSpotMin}m - {specs.sweetSpotMax}m</span>
+                  <span className="font-mono text-sky-400 font-bold">{specs.sweetSpotMin}m - {specs.sweetSpotMax}m</span>
                 </div>
                 <p className="text-[10px] text-slate-400 italic pt-1 leading-normal font-sans">
                   Stand outside of {specs.minViewingDistance}m to achieve premium, seamless fusion (pixels coalesce beautifully).
@@ -387,26 +387,26 @@ export default function ProductCalculator() {
             </div>
 
             {/* Proudly Malaysian Local Service & Execution Guarantees */}
-            <div className="p-5 bg-cyan-400/[0.02] border border-cyan-400/20 rounded-none space-y-3">
-              <span className="font-display font-bold text-[10px] text-cyan-400 tracking-[0.2em] uppercase block border-b border-cyan-400/10 pb-2 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full inline-block animate-pulse"></span>
+            <div className="p-5 bg-blue-600/[0.02] border border-blue-500/20 rounded-none space-y-3">
+              <span className="font-display font-bold text-[10px] text-sky-400 tracking-[0.2em] uppercase block border-b border-blue-500/10 pb-2 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 bg-blue-500 rounded-full inline-block animate-pulse"></span>
                 NATIONWIDE MALAYSIAN EXECUTION
               </span>
               <ul className="space-y-2 text-[10px] text-slate-300 font-mono">
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
                   Kuala Lumpur HQ Project Desk
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
                   Semenyih & Borneo Rigging Crews
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
                   48h Local Spare Parts Standby
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                  <Check className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
                   Full Site Assessment Safeguard
                 </li>
               </ul>
