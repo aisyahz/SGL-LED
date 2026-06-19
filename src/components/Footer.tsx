@@ -1,5 +1,5 @@
 import { ArrowUp, Mail, Phone, MapPin, ExternalLink, Calendar } from 'lucide-react';
-import logoImg from '../assets/images/logo-2.png';
+import logoImg from '../assets/images/logo-sgl.jpeg';
 
 interface FooterProps {
   onNavigateToSection: (sectionId: string) => void;
@@ -17,18 +17,19 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
           
           {/* Column A: Logo Brand Zone (Col-span 5) */}
           <div className="md:col-span-5 space-y-6">
-            <div className="flex items-center gap-2.5">
-              <div className="bg-white/5 w-10 h-10 rounded-none border border-white/10 p-1 flex items-center justify-center overflow-hidden">
+            <div className="flex items-center gap-3">
+              <div className="bg-white w-12 h-12 rounded-none border border-white/15 p-1 flex items-center justify-center overflow-hidden shrink-0">
                 <img 
                   src={logoImg} 
-                  alt="SGL Logo" 
+                  alt="SGL International LED Sdn Bhd Logo" 
                   className="w-full h-full object-contain p-0.5"
                   referrerPolicy="no-referrer"
                 />
               </div>
               <div>
-                <span className="font-display font-black text-xl tracking-tight text-white block uppercase">SGL</span>
-                <span className="font-mono text-[8px] tracking-[0.25em] text-slate-500 uppercase block -mt-1 font-bold">Digital LED displays</span>
+                <span className="font-display font-black text-sm tracking-wide text-white block uppercase leading-tight">SGL International LED</span>
+                <span className="font-mono text-[8.5px] text-[#38bdf8] uppercase block leading-none font-bold mt-0.5">Sdn Bhd</span>
+                <span className="font-sans text-[8.5px] text-slate-400 block mt-0.5">Malaysia's LED Display Specialist</span>
               </div>
             </div>
 
@@ -107,7 +108,7 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
         {/* Footnote and scroll to top panel */}
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
           <p className="text-slate-500 font-sans">
-            &copy; {new Date().getFullYear()} SGL Digital LED Displays. All rights reserved. Registered under SGL APAC Engineering, Menara Petronas KLCC.
+            &copy; {new Date().getFullYear()} SGL International LED Sdn Bhd. All rights reserved. Malaysia's LED Display Specialist. Unit 32-02, Menara Petronas KLCC.
           </p>
           <button
             onClick={handleScrollToTop}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ShieldCheck, PhoneCall, Layers, Monitor, Calculator, ArrowRight, Menu, X } from 'lucide-react';
-import logoImg from '../assets/images/logo-2.png';
+import logoImg from '../assets/images/logo-sgl.jpeg';
 
 interface NavbarProps {
   onNavigateToSection: (sectionId: string) => void;
@@ -47,8 +47,8 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#0b1120]/95 backdrop-blur-md border-b border-white/8 py-4 shadow-xl'
-          : 'bg-transparent py-6 border-b border-white/5'
+          ? 'bg-[#0b1120]/95 backdrop-blur-md border-b border-white/8 py-3 shadow-xl'
+          : 'bg-transparent py-5 border-b border-white/5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -60,25 +60,16 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
               window.scrollTo({ top: 0, behavior: 'smooth' });
               setMobileMenuOpen(false);
             }}
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex flex-col items-start cursor-pointer group"
             id="brand-logo-btn"
           >
-            <div className="relative">
-              <div className="w-8 h-8 rounded-none border border-white/8 flex items-center justify-center overflow-hidden bg-white/5 shadow-[0_0_15px_rgba(37,99,235,0.1)]">
-                <img 
-                  src={logoImg} 
-                  alt="SGL Logo" 
-                  className="w-full h-full object-contain p-0.5"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-            </div>
-            <div className="text-left">
-              <div className="flex items-center">
-                <span className="font-display font-extrabold text-lg tracking-widest text-white uppercase leading-none">SGL</span>
-                <span className="font-mono text-[9px] font-bold text-sky-400 ml-1.5 border border-sky-400/20 px-1 py-0.2 rounded-none">PRO</span>
-              </div>
-              <p className="font-mono text-[8px] tracking-[0.2em] text-slate-400 uppercase leading-none mt-0.5">Lumina Displays</p>
+            <div className="h-11 sm:h-13 w-auto bg-white p-1 shadow-md border border-white/10 flex items-center justify-center shrink-0">
+              <img 
+                src={logoImg} 
+                alt="SGL International LED Sdn Bhd Logo" 
+                className="h-full w-auto object-contain block"
+                referrerPolicy="no-referrer"
+              />
             </div>
           </button>
 

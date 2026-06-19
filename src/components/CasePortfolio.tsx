@@ -11,18 +11,18 @@ export default function CasePortfolio() {
 
   return (
     <section id="cases-section" className="py-24 bg-transparent border-t border-white/5 relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/1 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/1 via-transparent to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
         {/* Title and Headings using SectionHeader */}
         <SectionHeader
           badgeText="PROVEN COMMERCIAL DEPLOYMENTS"
-          icon={<Monitor className="w-3 h-3 text-cyan-400" />}
+          icon={<Monitor className="w-3 h-3 text-blue-500" />}
           title="SGL Commercial Case Studies"
           description="Verify actual RM100,000+ commercial-grade LED design architectures in equatorial Southeast Asia. Inspect our customized resolutions and high-density installations."
         />
-
+        
         {/* Dynamic Project Selector Switches */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
           {CASE_STUDIES.map((cs) => (
@@ -31,12 +31,12 @@ export default function CasePortfolio() {
               onClick={() => setSelectedCaseId(cs.id)}
               className={`p-5 rounded-none text-left border cursor-pointer transition-all duration-200 ${
                 selectedCaseId === cs.id
-                  ? 'bg-[#05070a] border-cyan-400 shadow-xl led-reflection-glow'
+                  ? 'bg-[#05070a] border-blue-600 shadow-xl led-reflection-glow'
                   : 'bg-transparent border-white/10 hover:border-white'
               }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="font-mono text-[8px] font-bold tracking-[0.15em] text-[#22d3ee] uppercase">
+                <span className="font-mono text-[8px] font-bold tracking-[0.15em] text-blue-400 uppercase">
                   {cs.series} INSTALLATION
                 </span>
                 <span className="text-white font-mono text-[10px] font-bold">
