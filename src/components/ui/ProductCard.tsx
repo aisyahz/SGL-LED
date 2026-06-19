@@ -20,6 +20,7 @@ export default function ProductCard({
 }: ProductCardProps) {
   const specItems: SpecItem[] = [
     { label: 'Available Pitches:', value: product.pitches.map(p => `P${p}`).join(', ') },
+    { label: 'Price Per SQM:', value: `RM ${product.costFactor.toLocaleString('en-MY')}` },
     { label: 'Brightness Factor:', value: product.brightness },
     { label: 'Refresh Rate Speed:', value: product.refreshRate },
     { label: 'Cabinet Housing:', value: product.cabinetSize },

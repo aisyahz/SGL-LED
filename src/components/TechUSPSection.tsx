@@ -78,10 +78,10 @@ export default function TechUSPSection() {
         <div className="mt-16 bg-white/[0.01] border border-white/8 p-5 rounded-none flex flex-col sm:flex-row items-center justify-between gap-4 max-w-4xl mx-auto">
           <div className="flex items-center gap-2 text-xs text-slate-400 font-sans text-center sm:text-left">
             <Zap className="w-4 h-4 text-blue-500 animate-pulse" />
-            <span>All display installations come with a cohesive 36-month local SGL service Level Agreement (SLA).</span>
+            <span>All display installations come with a cohesive 24-month local SGL service Level Agreement (SLA).</span>
           </div>
           <span className="font-mono text-[9px] text-sky-400 font-bold tracking-[0.2em] uppercase">
-            3-Year Premium Full Warranty
+            2-Year Premium Full Warranty
           </span>
         </div>
 

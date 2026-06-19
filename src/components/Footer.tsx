@@ -34,7 +34,7 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-              SGL is Southeast Asia&apos;s leading engineering and procurement force specializing in serious, large-footprint commercial LED displays with true Common Cathode energy efficiency and P0.9 to P8.0 pixels.
+              SGL is Southeast Asia&apos;s leading engineering and procurement force specializing in serious, large-footprint commercial LED displays with true Common Cathode energy efficiency and P1.86, P2.5, and P4 pixels.
             </p>
 
             <div className="space-y-2 text-xs">

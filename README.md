@@ -16,7 +16,7 @@ SGL has shifted from standard speculative hardware checklists to a **Value-First
 ### B. Malaysian Project Safeguard & Engineering Footprint:
 * **Kuala Lumpur HQ**: Main technical design and dispatch project desk.
 * **Nationwide Rigging Coverage**: Active mechanical rigging and architectural display installation teams operating in both region Peninsula (Semenyih) and East Malaysia (Borneo).
-* **48-Hour Technical Standby**: Dedicated localized maintenance response with structured 36-month local parts warranties, eliminating technical guesswork and import delays.
+* **48-Hour Technical Standby**: Dedicated localized maintenance response with structured 24-month local parts warranties, eliminating technical guesswork and import delays.
 
 ---
 
@@ -72,22 +72,17 @@ The codebase is organized in a highly modular pattern to prevent unified context
 ## 3. Mathematical Models & Diagnostic Business Logic
 
 ### A. The SGL Core Estimation Formula
-Inside `ConsultationDialog.tsx` and `ProductCalculator.tsx`, custom commercial valuation equations represent physical Malaysian hardware rates (typically exceeding RM100,000 threshold values).
+Inside `ConsultationDialog.tsx` and `ProductCalculator.tsx`, custom commercial valuation equations represent physical Malaysian hardware rates from the selected LED product.
 
 *   **Variables**:
     *   $\text{Width } (W)$ in meters
     *   $\text{Height } (H)$ in meters
-    *   $\text{Base Project Parameter } (C_M)$ of Selected Application Mode Series:
-        *   `Corporate`: Base cost coefficient of **RM 12,500** per sqm.
-        *   `Retail`: Base cost coefficient of **RM 9,800** per sqm.
-        *   `Outdoor`: Base cost coefficient of **RM 14,000** per sqm.
-    *   $\text{Pitch Multiplier } (P_M)$ based on Pixel Pitch (Narrower pitch increases semiconductor count drastically):
-        *   `P0.9` or similar narrow pitch: multiplier $\times 2.8$
-        *   `P1.2` / `P1.5` / `P1.8`: multiplier $\times 1.8$ to $2.2$
-        *   `P2.5`: multiplier $\times 1.4$
-        *   `P4.0` / `P10.0` (Outdoor): multiplier $\times 1.0$
+    *   $\text{Product Rate } (R)$ of Selected Product:
+        *   Main product: `P2.5 Indoor Led Display` at **RM 2,800** per sqm.
+        *   Secondary product: `P1.86 Indoor Led Display` at **RM 3,200** per sqm.
+        *   Outdoor product: `P4 Led Display Water Proof` at **RM 3,500** per sqm.
 
-$$\text{Estimated Project Cost (RM)} = (W \times H) \times C_M \times P_M$$
+$$\text{Estimated Project Cost (RM)} = H \times W \times R$$
 
 ### B. Display Diagnostics Mapping
 *   **Pixel Count Formula**:

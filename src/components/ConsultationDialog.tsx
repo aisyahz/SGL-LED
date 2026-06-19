@@ -2,6 +2,7 @@ import { useState, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PhoneCall, X, Send, CheckCircle, Calculator, FileText, Zap, RefreshCw } from 'lucide-react';
 import { LedDisplayProduct } from '../types';
+import { PRICING_PRODUCTS } from '../constants';
 
 interface ConsultationDialogProps {
   isOpen: boolean;
@@ -18,7 +19,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
     projectType: 'Corporate',
     width: 6.0,
     height: 3.375,
-    pitch: 1.2,
+    pitch: PRICING_PRODUCTS.Corporate.pitch,
     message: ''
   });
 
@@ -31,7 +32,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
       setFormData((prev) => ({
         ...prev,
         projectType: preselectedProduct.series,
-        pitch: preselectedProduct.pitches[0] || 1.2
+        pitch: preselectedProduct.pitches[0] || PRICING_PRODUCTS.Corporate.pitch
       }));
     }
   });
@@ -57,7 +58,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
       projectType: 'Corporate',
       width: 6.0,
       height: 3.375,
-      pitch: 1.2,
+      pitch: PRICING_PRODUCTS.Corporate.pitch,
       message: ''
     });
     setFormSubmitted(false);
@@ -67,7 +68,6 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
   const livePriceEstimate = useMemoEstimate(
     formData.width,
     formData.height,
-    formData.pitch,
     formData.projectType
   );
 
@@ -212,13 +212,20 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                         </label>
                         <select
                           value={formData.projectType}
-                          onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                          onChange={(e) => {
+                            const projectType = e.target.value as keyof typeof PRICING_PRODUCTS;
+                            setFormData({
+                              ...formData,
+                              projectType,
+                              pitch: PRICING_PRODUCTS[projectType].pitch
+                            });
+                          }}
                           className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white focus:outline-none"
                           aria-label="Product series selector"
                         >
-                          <option value="Corporate">Corporate Lobby series (COB Onyx)</option>
-                          <option value="Retail">Retail Atrium series (Horizon Curving)</option>
-                          <option value="Outdoor">Outdoor Skyscraper series (Titan Billboard)</option>
+                          <option value="Corporate">{PRICING_PRODUCTS.Corporate.productName} - RM 2,800 / sqm</option>
+                          <option value="Retail">{PRICING_PRODUCTS.Retail.productName} - RM 3,200 / sqm</option>
+                          <option value="Outdoor">{PRICING_PRODUCTS.Outdoor.productName} - RM 3,500 / sqm</option>
                         </select>
                       </div>
 
@@ -268,7 +275,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                           </span>
                         </div>
                         <p className="text-[10px] text-slate-450 text-slate-400 leading-normal mt-2 flex items-center gap-1.5 border-t border-white/5 pt-2">
-                          <Zap className="w-3.5 h-3.5 text-blue-500" /> Calculates based on core sizing footprint & structural parameters.
+                          <Zap className="w-3.5 h-3.5 text-blue-500" /> Calculates as height * width * selected product rate.
                         </p>
                       </div>
 
@@ -351,20 +358,13 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
 }
 
 // Custom hook helper to compute approximate RM pricing dynamically
-function useMemoEstimate(width: number, height: number, pitch: number, type: string) {
+function useMemoEstimate(width: number, height: number, type: string) {
   const area = width * height;
-  let multiplier = 5000;
-  if (type === 'Corporate') multiplier = 8500;
-  if (type === 'Retail') multiplier = 5800;
-  if (type === 'Outdoor') multiplier = 4200;
-
-  // Surcharge for finer pitches
-  const pitchFactor = pitch <= 1.2 ? 1.4 : pitch <= 2.0 ? 1.15 : 0.95;
-
-  const totalEstimate = Math.round(area * multiplier * pitchFactor);
+  const productKey = type in PRICING_PRODUCTS ? (type as keyof typeof PRICING_PRODUCTS) : 'Corporate';
+  const totalEstimate = Math.round(area * PRICING_PRODUCTS[productKey].ratePerSqm);
   
   if (isNaN(totalEstimate) || totalEstimate <= 0) {
-    return 'RM 100,000+';
+    return 'RM 0';
   }
 
   // Format currency

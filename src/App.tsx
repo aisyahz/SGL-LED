@@ -108,7 +108,7 @@ export default function App() {
 
       {/* Elegant, Swiss-modern floating WhatsApp Button */}
       <a
-        href="https://wa.me/60123456789"
+        href="https://wa.me/60104257824?text=Hello%20SGL%20International%20LED,%20I%20would%20like%20to%20request%20a%20quotation%20for%20an%20LED%20display."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 left-6 z-50 flex items-center gap-2 px-4 py-2.5 bg-[#111827] border border-emerald-500/30 hover:border-emerald-400 text-white font-mono text-[9px] tracking-[0.2em] uppercase transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.15)] group rounded-none"

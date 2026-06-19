@@ -14,7 +14,7 @@ export const HERO_SLIDES = [
     image: heroIndoorImg,
     badge: 'ENHANCED VISITOR EXPERIENCE',
     accentColor: 'from-cyan-500 to-blue-500',
-    meta: { size: 'Custom 4K/8K Sets', pitch: 'P0.9 - P1.8', tech: 'Lobbies & Auditoriums' },
+    meta: { size: 'Custom Indoor Sets', pitch: 'P2.5', tech: 'Lobbies & Auditoriums' },
     industry: 'Corporate Reception, Schools, Premium Restaurants, Worship Houses',
     useCase: 'Welcoming lobbies, immersive workspaces, elegant dining halls, digital signage',
     benefit: 'Command absolute attention, bolster operational prestige, and deliver clear, striking communication'
@@ -27,7 +27,7 @@ export const HERO_SLIDES = [
     image: heroMallImg,
     badge: 'MAXIMIZED AD REVENUE',
     accentColor: 'from-purple-500 to-pink-500',
-    meta: { size: 'Floating ribbons', pitch: 'P1.8 - P2.5', tech: 'Atriums & Store Fronts' },
+    meta: { size: 'Floating ribbons', pitch: 'P1.86', tech: 'Atriums & Store Fronts' },
     industry: 'Shopping Malls, Flagship Retailers, Commercial Property Developers',
     useCase: 'Curved architectural ribbons, suspended central atriums, focal main lobbies',
     benefit: 'Increase direct advertising sales, boost visitor dwell times, and secure lucrative premium sponsor leases'
@@ -36,28 +36,48 @@ export const HERO_SLIDES = [
     id: 'slide-3',
     heading: 'Reliable 24/7 Performance',
     tagline: 'INTERNATIONAL QUALITY. MALAYSIAN SUPPORT.',
-    description: 'Shatter-proof weatherproof outdoor billboards and indoor command centers designed for tropical microclimates. Deployed on energy-saving circuit systems with a full 36-month local warranty.',
+    description: 'Shatter-proof weatherproof outdoor billboards and indoor command centers designed for tropical microclimates. Deployed on energy-saving circuit systems with a full 24-month local warranty.',
     image: heroOutdoorImg,
     badge: 'RELIABLE 24/7 PERFORMANCE',
     accentColor: 'from-blue-600 to-indigo-500',
-    meta: { size: 'Up to 300 SQM', pitch: 'P1.2 - P4.0', tech: 'Boardrooms & Live Staging' },
+    meta: { size: 'Up to 300 SQM', pitch: 'P4 Waterproof', tech: 'Boardrooms & Live Staging' },
     industry: 'Boardrooms, High-Traffic Highways, Stage Halls, Public Centers',
     useCase: 'Weatherproof high-nit billboards, 24/7 command displays, premium conference walls',
-    benefit: 'Guarantee camera-flicker-free visual continuity, lower power consumption, and provide 36-month local parts support'
+    benefit: 'Guarantee camera-flicker-free visual continuity, lower power consumption, and provide 24-month local parts support'
   }
-];export const PRODUCTS: LedDisplayProduct[] = [
+];
+
+export const PRICING_PRODUCTS = {
+  Corporate: {
+    productName: 'P2.5 Indoor Led Display',
+    pitch: 2.5,
+    ratePerSqm: 2800
+  },
+  Retail: {
+    productName: 'P1.86 Indoor Led Display',
+    pitch: 1.86,
+    ratePerSqm: 3200
+  },
+  Outdoor: {
+    productName: 'P4 Led Display Water Proof',
+    pitch: 4.0,
+    ratePerSqm: 3500
+  }
+} as const;
+
+export const PRODUCTS: LedDisplayProduct[] = [
   {
     id: 'sgl-onyx',
-    name: 'SGL Onyx Series',
+    name: PRICING_PRODUCTS.Corporate.productName,
     series: 'Corporate',
     tagline: 'PRESTIGE CORPORATE LOBBIES & RESTAURANTS',
     description: 'Designed for close-range visual elegance. Perfect for corporate headquarters, VIP boardrooms, and premium restaurant feature walls. Proclaim brand authority and inspire visiting clients with deep, true-color imagery that remains eye-safe and completely glare-free.',
-    pitches: [0.9, 1.2, 1.5, 1.8],
+    pitches: [PRICING_PRODUCTS.Corporate.pitch],
     brightness: '600 - 1,200 nits (Daylight Adjustable)',
     refreshRate: '7,680 Hz Studio-Fluent',
     cabinetSize: '600mm x 337.5mm (Cinematic 16:9 Aspect)',
     ipRating: 'IP30 Indoor Dustproof',
-    costFactor: 8500, // Cost indicator per square meter (approx in RM)
+    costFactor: PRICING_PRODUCTS.Corporate.ratePerSqm,
     features: [
       'Next-Gen COB panel coating - waterproof, scratchproof, and dustproof',
       'Ultra-fine pixel pitch optimized for comfortable, close-range indoor reading',
@@ -67,16 +87,16 @@ export const HERO_SLIDES = [
   },
   {
     id: 'sgl-horizon',
-    name: 'SGL Horizon Series',
+    name: PRICING_PRODUCTS.Retail.productName,
     series: 'Retail',
     tagline: 'SHOPPING MALL ATRIUMS & CREATIVE SPACES',
     description: 'Flexible, curving digital sheets engineered to flow around columns and float inside multi-storey shopping mall atriums. Drive elite consumer foot traffic, extend viewer dwell times, and secure lucrative advertising partnerships with premier retail labels.',
-    pitches: [1.8, 2.0, 2.5, 3.0],
+    pitches: [PRICING_PRODUCTS.Retail.pitch],
     brightness: '1,500 - 2,200 nits High-contrast',
     refreshRate: '3,840 Hz Standard',
     cabinetSize: '500mm x 500mm or Custom Curving Segment',
     ipRating: 'IP40 Front / IP30 Rear',
-    costFactor: 5800,
+    costFactor: PRICING_PRODUCTS.Retail.ratePerSqm,
     features: [
       'Ultra-light magnesium alloy segments (only 5.8kg) - safe for roof suspension',
       'Step-less angle joints supporting curving configurations (+/- 15°)',
@@ -86,16 +106,16 @@ export const HERO_SLIDES = [
   },
   {
     id: 'sgl-titan',
-    name: 'SGL Titan Series',
+    name: PRICING_PRODUCTS.Outdoor.productName,
     series: 'Outdoor',
     tagline: 'METROPOLITAN WEATHERPROOF OUTDOOR BILLBOARDS',
     description: 'Highly robust, convective-cooled outdoor billboard titans built for the harsh tropical Malaysian climate. Secure high-impact visibility along congested ring roads and highways to generate millions of weekly advertiser impressions.',
-    pitches: [4.0, 5.0, 6.0, 8.0],
+    pitches: [PRICING_PRODUCTS.Outdoor.pitch],
     brightness: '6,500 - 8,000 nits Scorching-Sun Ready',
     refreshRate: '3,840 Hz Dynamic',
     cabinetSize: '960mm x 960mm magnesium-alloy heavy structural shell',
     ipRating: 'IP65 All-Weather Waterproof',
-    costFactor: 4200,
+    costFactor: PRICING_PRODUCTS.Outdoor.ratePerSqm,
     features: [
       'Genuine IP65 fully weatherproof seals defending against flash tropical storms',
       'Energy-saving Common Cathode topology slashes monthly electric power bills by 30%',

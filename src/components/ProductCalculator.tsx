@@ -1,24 +1,26 @@
 import { useState, useMemo } from 'react';
-import { motion } from 'motion/react';
-import { Sliders, Eye, Zap, Weight, Maximize2, ShieldAlert, CheckCircle, Info, Landmark, Check } from 'lucide-react';
+import { Sliders, Eye, Zap, Weight, Maximize2, Info, Check, BadgeDollarSign } from 'lucide-react';
+import { PRICING_PRODUCTS } from '../constants';
+
+type PricingMode = keyof typeof PRICING_PRODUCTS;
 
 export default function ProductCalculator() {
-  const [seriesMode, setSeriesMode] = useState<'Corporate' | 'Retail' | 'Outdoor'>('Corporate');
-  const [pitch, setPitch] = useState<number>(1.2);
+  const [seriesMode, setSeriesMode] = useState<PricingMode>('Corporate');
+  const [pitch, setPitch] = useState<number>(PRICING_PRODUCTS.Corporate.pitch);
   const [width, setWidth] = useState<number>(6.0); // Meters
   const [height, setHeight] = useState<number>(3.375); // Meters (perfect 16:9 aspect ratio standard)
 
   // Mapping pitch values for each environment to prevent unrealistic configurations
   const pitchOptions = {
-    Corporate: [0.9, 1.2, 1.5, 1.8],
-    Retail: [1.8, 2.0, 2.5, 3.0],
-    Outdoor: [4.0, 5.0, 6.0, 8.0]
+    Corporate: [PRICING_PRODUCTS.Corporate.pitch],
+    Retail: [PRICING_PRODUCTS.Retail.pitch],
+    Outdoor: [PRICING_PRODUCTS.Outdoor.pitch]
   };
 
   // Adjust pitch dynamically when seriesMode shifts
-  const handleSeriesChange = (mode: 'Corporate' | 'Retail' | 'Outdoor') => {
+  const handleSeriesChange = (mode: PricingMode) => {
     setSeriesMode(mode);
-    setPitch(pitchOptions[mode][0]);
+    setPitch(PRICING_PRODUCTS[mode].pitch);
     if (mode === 'Outdoor') {
       setWidth(12.0);
       setHeight(6.0);
@@ -34,6 +36,8 @@ export default function ProductCalculator() {
   // Intermediate calculations
   const specs = useMemo(() => {
     const area = width * height;
+    const selectedProduct = PRICING_PRODUCTS[seriesMode];
+    const totalPrice = Math.round(area * selectedProduct.ratePerSqm);
     
     // Pixel count calculations
     const pixelsW = Math.round((width * 1000) / pitch);
@@ -82,7 +86,14 @@ export default function ProductCalculator() {
       avgPowerKw,
       minViewingDistance,
       sweetSpotMin,
-      sweetSpotMax
+      sweetSpotMax,
+      productName: selectedProduct.productName,
+      ratePerSqm: selectedProduct.ratePerSqm,
+      totalPrice: new Intl.NumberFormat('en-MY', {
+        style: 'currency',
+        currency: 'MYR',
+        maximumFractionDigits: 0
+      }).format(totalPrice).replace('MYR', 'RM')
     };
   }, [width, height, pitch, seriesMode]);
 
@@ -132,6 +143,13 @@ export default function ProductCalculator() {
                     {mode}
                   </button>
                 ))}
+              </div>
+              <div className="mt-4 bg-white/[0.02] border border-white/5 p-3">
+                <span className="block text-[9px] tracking-widest text-slate-400 font-sans font-semibold uppercase mb-1">Selected Product</span>
+                <span className="block font-display font-black text-sm text-white uppercase tracking-tight">{specs.productName}</span>
+                <span className="block font-mono text-[10px] text-sky-400 font-bold mt-1">
+                  RM {specs.ratePerSqm.toLocaleString('en-MY')} / sqm
+                </span>
               </div>
             </div>
 
@@ -330,6 +348,18 @@ export default function ProductCalculator() {
                 <div>
                   <span className="block text-[9px] tracking-widest text-slate-400 font-sans font-semibold uppercase leading-tight mb-0.5">Total LED Area</span>
                   <span className="font-mono text-sm text-white font-extrabold leading-none">{specs.area} sqm</span>
+                </div>
+              </div>
+
+              {/* Estimated Price Box */}
+              <div className="p-3 bg-emerald-500/[0.04] border border-emerald-400/20 rounded-none flex items-center gap-3">
+                <div className="p-2.5 bg-white/5 rounded-none border border-white/10 text-emerald-400">
+                  <BadgeDollarSign className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="block text-[9px] tracking-widest text-slate-400 font-sans font-semibold uppercase leading-tight mb-0.5">Estimated Price</span>
+                  <span className="font-mono text-sm text-white font-extrabold leading-none">{specs.totalPrice}</span>
+                  <span className="font-mono text-[9px] text-emerald-400 block mt-1 leading-none">H * W * RM {specs.ratePerSqm.toLocaleString('en-MY')}</span>
                 </div>
               </div>
 

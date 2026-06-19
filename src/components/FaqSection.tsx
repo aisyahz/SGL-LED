@@ -17,11 +17,11 @@ export default function FaqSection() {
     },
     {
       question: 'What warranty is provided?',
-      answer: 'All SGL flagship installations include a comprehensive 3-year warranty covering all electronic components, power units, and pixel modules. We operate a localized, prompt 48-hour Service Level Agreement (SLA) repair/replacement backup dispatch from our Kuala Lumpur hub.'
+      answer: 'All SGL flagship installations include a comprehensive 2-year warranty covering all electronic components, power units, and pixel modules. We operate a localized, prompt 48-hour Service Level Agreement (SLA) repair/replacement backup dispatch from our Kuala Lumpur hub.'
     },
     {
       question: 'Which pixel pitch should I choose?',
-      answer: 'Pixel pitch selection depends on the minimum viewing distance. For close-up corporate lobbies (<2.5m), we recommend Onyx Series fine pitches (P0.9 - P1.5). For retail mall galleries and high-ceiling atriums (3m - 6m), the Horizon P1.8 or P2.5 offers absolute visual balance. Large-scale outdoor billboards use Titan P4.0 or P5.0.'
+      answer: 'Pixel pitch selection depends on the minimum viewing distance and installation environment. For most indoor commercial displays, choose P2.5 Indoor Led Display. For sharper indoor viewing, choose P1.86 Indoor Led Display. For outdoor waterproof installations, choose P4 Led Display Water Proof.'
     },
     {
       question: 'Do you cover all Malaysia?',
