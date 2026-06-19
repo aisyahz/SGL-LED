@@ -74,6 +74,9 @@ export default function App() {
           onOpenConsultation={handleOpenConsultation}
         />
 
+        {/* Small "Industries We Serve" Section with SGL Core Value Deck */}
+        <IndustriesSection />
+
         {/* Modular Product Series Catalog */}
         <ProductCatalog
           onSelectProduct={handleSelectProductForQuote}
@@ -81,9 +84,6 @@ export default function App() {
 
         {/* Dynamic Interactive Pixel Pitch & Screen Dimensions Calculator */}
         <ProductCalculator />
-
-        {/* Small "Industries We Serve" Section */}
-        <IndustriesSection />
 
         {/* Heavy Commercial Case Studies (Kuala Lumpur, Avenue K, Standard Chartered RM100k+ portfolio) */}
         <CasePortfolio />

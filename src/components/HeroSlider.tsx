@@ -90,7 +90,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
       </div>
 
       {/* Main Content Area */}
-      <div className="absolute inset-0 z-10 flex items-center">
+      <div className="absolute inset-0 z-10 flex items-center pt-28 sm:pt-32 md:pt-36">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
           <div className="max-w-2xl md:max-w-3xl">
             
@@ -145,10 +145,38 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl pb-8 font-sans"
+                className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed max-w-xl pb-4 font-sans"
               >
                 {currentSlide.description}
               </motion.p>
+            </AnimatePresence>
+
+            {/* Business value parameters */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`biz-${currentSlide.id}`}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.5, delay: 0.35 }}
+                className="mb-8 border border-white/5 bg-[#05070a]/70 p-4 sm:p-5 max-w-xl rounded-none text-xs space-y-3 font-sans"
+              >
+                <div className="flex items-start gap-4">
+                  <span className="font-mono text-[8px] sm:text-[9px] text-[#22d3ee] tracking-wider uppercase shrink-0 w-24 pt-0.5">// TARGET SECTORS:</span>
+                  <span className="text-slate-300 font-medium font-sans">{(currentSlide as any).industry}</span>
+                </div>
+                <div className="flex items-start gap-4">
+                  <span className="font-mono text-[8px] sm:text-[9px] text-[#22d3ee] tracking-wider uppercase shrink-0 w-24 pt-0.5">// PRACTICAL USE:</span>
+                  <span className="text-slate-300 font-medium font-sans">{(currentSlide as any).useCase}</span>
+                </div>
+                <div className="flex items-start gap-4 leading-relaxed">
+                  <span className="font-mono text-[8px] sm:text-[9px] text-emerald-400 tracking-wider uppercase shrink-0 w-24 pt-0.5 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full inline-block animate-pulse"></span>
+                    VALUE BENEFIT:
+                  </span>
+                  <span className="text-emerald-400 font-bold font-sans">{(currentSlide as any).benefit}</span>
+                </div>
+              </motion.div>
             </AnimatePresence>
 
             {/* Action CTAs */}
@@ -159,22 +187,21 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2"
+                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1"
               >
                 <button
                   onClick={onOpenConsultation}
                   className="editorial-button-primary"
                   id="hero-inquire-btn"
                 >
-                  Configure Custom LED Wall
+                  Get Free Consultation
                 </button>
                 <button
-                  onClick={() => onNavigateToSection('calculator-section')}
+                  onClick={onOpenConsultation}
                   className="editorial-button-secondary inline-flex items-center justify-center gap-2"
                   id="hero-calc-shortcut-btn"
                 >
-                  <Sliders className="w-3.5 h-3.5 text-cyan-400" />
-                  Pixel Pitch Calculator
+                  Request Quotation
                 </button>
               </motion.div>
             </AnimatePresence>

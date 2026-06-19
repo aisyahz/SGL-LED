@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CASE_STUDIES } from '../constants';
 import { CaseStudy } from '../types';
-import { Monitor, MapPin, Landmark, Scaling, DollarSign, PenTool, ShieldAlert, Sparkles, AlertCircle } from 'lucide-react';
+import { Monitor, MapPin, Landmark, Scaling, DollarSign, PenTool, ShieldAlert, Sparkles, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 export default function CasePortfolio() {
   const [selectedCaseId, setSelectedCaseId] = useState<string>('case-std-stanchart');
@@ -66,11 +66,12 @@ export default function CasePortfolio() {
             <div className="space-y-6">
               
               <div>
-                <span className="text-[8px] font-mono text-[#22d3ee] font-bold tracking-[0.2em] uppercase block mb-1.5">PROJECT TARGET CLIENT</span>
+                <span className="text-[8px] font-mono text-[#22d3ee] font-bold tracking-[0.2em] uppercase block mb-1.5">CLIENT TYPE</span>
                 <h4 className="font-display font-black text-lg text-white leading-tight uppercase flex items-center gap-2">
                   <Landmark className="w-5 h-5 text-cyan-400" />
-                  {activeCase.client}
+                  {activeCase.clientType}
                 </h4>
+                <p className="text-[10px] text-slate-400 font-mono mt-1 uppercase">CLIENT: {activeCase.client}</p>
                 <p className="text-xs text-slate-400 font-sans mt-2 flex items-center gap-1.5">
                   <MapPin className="w-4 h-4 text-rose-500" />
                   {activeCase.location}
@@ -81,7 +82,7 @@ export default function CasePortfolio() {
               <div className="space-y-3 pt-4 border-t border-white/5">
                 
                 <div className="flex justify-between items-center text-xs">
-                  <span className="text-slate-400 font-semibold font-sans">Physical Size:</span>
+                  <span className="text-slate-400 font-semibold font-sans">Installation Size:</span>
                   <span className="font-mono text-white font-bold bg-white/5 px-2.5 py-1 rounded-none border border-white/10">{activeCase.size}</span>
                 </div>
 
@@ -107,7 +108,7 @@ export default function CasePortfolio() {
             </div>
 
             <div className="mt-8 pt-4 border-t border-white/5 text-[10px] text-slate-400 leading-normal font-sans">
-              *All SGL Case Studies are real, engineering-checked LED installations deployed with structural warranty contracts.
+              *All SGL projects are real, engineering-checked LED installations deployed with structural warranty contracts.
             </div>
           </div>
 
@@ -122,25 +123,48 @@ export default function CasePortfolio() {
               </p>
             </div>
 
-            {/* Core Architectural Challenge met */}
-            <div className="bg-white/[0.01] border border-white/5 border-l-2 border-amber-500 rounded-none p-5">
-              <span className="font-mono text-[9px] font-bold text-amber-500 tracking-[0.15em] uppercase flex items-center gap-1.5 mb-2">
-                <AlertCircle className="w-3.5 h-3.5" />
-                The Architectural Challenge
+            {/* Project Objective */}
+            <div className="bg-[#05070a]/40 border border-white/5 border-l-2 border-cyan-400 rounded-none p-5">
+              <span className="font-mono text-[9px] font-bold text-cyan-400 tracking-[0.15em] uppercase flex items-center gap-1.5 mb-2">
+                <Sparkles className="w-3.5 h-3.5" />
+                Project Objective & Goal
               </span>
               <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                {activeCase.challenge}
+                {activeCase.objective}
               </p>
             </div>
 
-            {/* Strategic High-Tech Solution deployed */}
-            <div className="bg-white/[0.01] border border-white/5 border-l-2 border-cyan-400 rounded-none p-5">
-              <span className="font-mono text-[9px] font-bold text-cyan-400 tracking-[0.15em] uppercase flex items-center gap-1.5 mb-2">
-                <Sparkles className="w-3.5 h-3.5" />
-                The SGL Engineered Solution
+            {/* Core Architectural Challenge met & Solution */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-white/[0.01] border border-white/5 border-l-2 border-amber-500 rounded-none p-5">
+                <span className="font-mono text-[9px] font-bold text-amber-500 tracking-[0.15em] uppercase flex items-center gap-1.5 mb-2">
+                  <AlertCircle className="w-3.5 h-3.5" />
+                  Engineering Challenge
+                </span>
+                <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                  {activeCase.challenge}
+                </p>
+              </div>
+
+              <div className="bg-white/[0.01] border border-white/5 border-l-2 border-blue-400 rounded-none p-5">
+                <span className="font-mono text-[9px] font-bold text-blue-400 tracking-[0.15em] uppercase flex items-center gap-1.5 mb-2">
+                  <PenTool className="w-3.5 h-3.5" />
+                  SGL Deployed Solution
+                </span>
+                <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                  {activeCase.solution}
+                </p>
+              </div>
+            </div>
+
+            {/* Business Outcome */}
+            <div className="bg-[#10b981]/[0.02] border border-emerald-500/10 border-l-2 border-emerald-500 rounded-none p-5">
+              <span className="font-mono text-[9px] font-bold text-emerald-400 tracking-[0.15em] uppercase flex items-center gap-1.5 mb-2">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                Verified Business Outcome
               </span>
-              <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                {activeCase.solution}
+              <p className="text-xs text-slate-200 leading-relaxed font-sans">
+                {activeCase.outcome}
               </p>
             </div>
 

@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'motion/react';
-import { Sliders, Eye, Zap, Weight, Maximize2, ShieldAlert, CheckCircle, Info, Landmark } from 'lucide-react';
+import { Sliders, Eye, Zap, Weight, Maximize2, ShieldAlert, CheckCircle, Info, Landmark, Check } from 'lucide-react';
 
 export default function ProductCalculator() {
   const [seriesMode, setSeriesMode] = useState<'Corporate' | 'Retail' | 'Outdoor'>('Corporate');
@@ -95,14 +95,14 @@ export default function ProductCalculator() {
         {/* Title Block */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="editorial-title-badge">
-            <Sliders className="w-3 h-3" /> INTERACTIVE ESTIMATION TOOL
+            <Sliders className="w-3 h-3" /> NATIONWIDE PLANNING DESK
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-black tracking-tighter text-white uppercase leading-none">
-            Pixel Pitch & SPECIFICATION Calculator
+            Malaysian Layout & Pitch Calculator
           </h2>
           <div className="mt-4 w-12 h-[1px] bg-white/20 mx-auto"></div>
           <p className="mt-5 text-sm text-slate-400 font-sans leading-relaxed">
-            Specify your structural footprint dimensions and toggle pitch parameters to inspect calculated resolution standards, electrical feeds, and viewing clearances before engineering draft phases.
+            Professional indoor & outdoor LED configurations across Malaysia. Estimate your custom resolution standards, viewing distances, and peak power loads calibrated for domestic commercial grids.
           </p>
         </div>
 
@@ -384,6 +384,32 @@ export default function ProductCalculator() {
                   Stand outside of {specs.minViewingDistance}m to achieve premium, seamless fusion (pixels coalesce beautifully).
                 </p>
               </div>
+            </div>
+
+            {/* Proudly Malaysian Local Service & Execution Guarantees */}
+            <div className="p-5 bg-cyan-400/[0.02] border border-cyan-400/20 rounded-none space-y-3">
+              <span className="font-display font-bold text-[10px] text-cyan-400 tracking-[0.2em] uppercase block border-b border-cyan-400/10 pb-2 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full inline-block animate-pulse"></span>
+                NATIONWIDE MALAYSIAN EXECUTION
+              </span>
+              <ul className="space-y-2 text-[10px] text-slate-300 font-mono">
+                <li className="flex items-center gap-2">
+                  <Check className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                  Kuala Lumpur HQ Project Desk
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                  Semenyih & Borneo Rigging Crews
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                  48h Local Spare Parts Standby
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                  Full Site Assessment Safeguard
+                </li>
+              </ul>
             </div>
 
           </div>

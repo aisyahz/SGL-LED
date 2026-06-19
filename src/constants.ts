@@ -8,92 +8,99 @@ import heroOutdoorImg from './assets/images/hero_outdoor_billboard_1781800816748
 export const HERO_SLIDES = [
   {
     id: 'slide-1',
-    heading: "Malaysia's Trusted LED Display Engineering Partner",
-    tagline: 'SGL LUMINA • COMMERCIAL & PUBLIC SPACES SPECIALIST',
-    description: 'Premium Indoor & Outdoor LED Display Solutions for Corporate, Retail, Education and Commercial Projects.',
+    heading: "Enhanced Visitor Experience",
+    tagline: 'ENGINEERED IN MALAYSIA. INSTALLED NATIONWIDE.',
+    description: 'Professional indoor LED displays designed to engage, convert, and inspire. Serving corporate offices, universities, churches, and restaurants across Malaysia with local Kuala Lumpur support teams and 48-hour standby response.',
     image: heroIndoorImg,
-    badge: 'MALAYSIA BRAND LEADERSHIP',
+    badge: 'ENHANCED VISITOR EXPERIENCE',
     accentColor: 'from-cyan-500 to-blue-500',
-    meta: { size: 'Custom 8K Wide', pitch: 'P0.9 - P1.5', tech: 'COB Ultra-Seamless' }
+    meta: { size: 'Custom 4K/8K Sets', pitch: 'P0.9 - P1.8', tech: 'Lobbies & Auditoriums' },
+    industry: 'Corporate Reception, Schools, Premium Restaurants, Worship Houses',
+    useCase: 'Welcoming lobbies, immersive workspaces, elegant dining halls, digital signage',
+    benefit: 'Command absolute attention, bolster operational prestige, and deliver clear, striking communication'
   },
   {
     id: 'slide-2',
-    heading: 'High-Impact Mall Retail Displays',
-    tagline: 'PREMIUM SHOPPING MALL RETAIL INSTALLATIONS',
-    description: 'Elevate luxury atria and premium shopping corridors with floating billboard arches, curved pillar columns, or super high-brightness dual-sided banner displays.',
+    heading: 'Maximized Ad Revenue',
+    tagline: 'TRUSTED BY MALAYSIAN COMMERCE & SHOPPING MALLS',
+    description: 'Transform commercial foot traffic into highly profitable sponsor visibility. Suspended atrium ribbons, curving column wraps, and digital entrance portals engineered to secure top-tier advertising rates nationwide.',
     image: heroMallImg,
-    badge: 'LUXURY RETAIL ATRIUMS',
+    badge: 'MAXIMIZED AD REVENUE',
     accentColor: 'from-purple-500 to-pink-500',
-    meta: { size: 'Floating Curved', pitch: 'P1.8 - P2.5', tech: 'Flexible Flex-Fit' }
+    meta: { size: 'Floating ribbons', pitch: 'P1.8 - P2.5', tech: 'Atriums & Store Fronts' },
+    industry: 'Shopping Malls, Flagship Retailers, Commercial Property Developers',
+    useCase: 'Curved architectural ribbons, suspended central atriums, focal main lobbies',
+    benefit: 'Increase direct advertising sales, boost visitor dwell times, and secure lucrative premium sponsor leases'
   },
   {
     id: 'slide-3',
-    heading: 'Weatherproof Commercial Outdoor Titans',
-    tagline: 'HIGH-TRAFFIC METROPOLITAN WEATHERPROOF MEDIA',
-    description: 'Command urban skylines and highways with bulletproof convective cooling structures capable of exceeding 7,500 nits under scorching solar exposure.',
+    heading: 'Reliable 24/7 Performance',
+    tagline: 'INTERNATIONAL QUALITY. MALAYSIAN SUPPORT.',
+    description: 'Shatter-proof weatherproof outdoor billboards and indoor command centers designed for tropical microclimates. Deployed on energy-saving circuit systems with a full 36-month local warranty.',
     image: heroOutdoorImg,
-    badge: 'DRAMATIC SKYSCRAPER SITES',
+    badge: 'RELIABLE 24/7 PERFORMANCE',
     accentColor: 'from-blue-600 to-indigo-500',
-    meta: { size: 'Up to 300 SQM', pitch: 'P4.0 - P8.0', tech: 'Common Cathode Power' }
+    meta: { size: 'Up to 300 SQM', pitch: 'P1.2 - P4.0', tech: 'Boardrooms & Live Staging' },
+    industry: 'Boardrooms, High-Traffic Highways, Stage Halls, Public Centers',
+    useCase: 'Weatherproof high-nit billboards, 24/7 command displays, premium conference walls',
+    benefit: 'Guarantee camera-flicker-free visual continuity, lower power consumption, and provide 36-month local parts support'
   }
-];
-
-export const PRODUCTS: LedDisplayProduct[] = [
+];export const PRODUCTS: LedDisplayProduct[] = [
   {
     id: 'sgl-onyx',
     name: 'SGL Onyx Series',
     series: 'Corporate',
-    tagline: 'Supreme Fine Pitch Command & Lobby Wall',
-    description: 'Crafted for close-range visual dominance. Utilizing next-generation Chip-on-Board (COB) technology for deep, velvet-grade blacks, superior physical protection, and flawless matte finish.',
+    tagline: 'PRESTIGE CORPORATE LOBBIES & RESTAURANTS',
+    description: 'Designed for close-range visual elegance. Perfect for corporate headquarters, VIP boardrooms, and premium restaurant feature walls. Proclaim brand authority and inspire visiting clients with deep, true-color imagery that remains eye-safe and completely glare-free.',
     pitches: [0.9, 1.2, 1.5, 1.8],
-    brightness: '600 - 1,200 nits (Adjustable)',
-    refreshRate: '7,680 Hz Ultra-Fluid',
+    brightness: '600 - 1,200 nits (Daylight Adjustable)',
+    refreshRate: '7,680 Hz Studio-Fluent',
     cabinetSize: '600mm x 337.5mm (Cinematic 16:9 Aspect)',
-    ipRating: 'IP30 Dustproof',
+    ipRating: 'IP30 Indoor Dustproof',
     costFactor: 8500, // Cost indicator per square meter (approx in RM)
     features: [
-      'COB (Chip on Board) encapsulation for impact, dust, and anti-static defense',
-      'HDR10+ true color processing & 22-bit grayscale depth',
-      'Complete modular front-service access via vacuum extraction tools',
-      'Direct-to-wall precision structural coupling, no heavy sub-frame needed'
+      'Next-Gen COB panel coating - waterproof, scratchproof, and dustproof',
+      'Ultra-fine pixel pitch optimized for comfortable, close-range indoor reading',
+      'Vacuum tool micro front-service access for near-zero maintenance downtime',
+      'Pre-calibrated 22-bit deep colors to perfectly represent premium brand assets'
     ]
   },
   {
     id: 'sgl-horizon',
     name: 'SGL Horizon Series',
     series: 'Retail',
-    tagline: 'Creative Curving & Atrium Floating Screen',
-    description: 'Unleash architecture. Horizon is built with dynamic modular cabinets that curve seamlessly in concave or convex profiles, specialized for retail centers and flagship experiential showrooms.',
+    tagline: 'SHOPPING MALL ATRIUMS & CREATIVE SPACES',
+    description: 'Flexible, curving digital sheets engineered to flow around columns and float inside multi-storey shopping mall atriums. Drive elite consumer foot traffic, extend viewer dwell times, and secure lucrative advertising partnerships with premier retail labels.',
     pitches: [1.8, 2.0, 2.5, 3.0],
     brightness: '1,500 - 2,200 nits High-contrast',
-    refreshRate: '3,840 Hz High-refresh',
+    refreshRate: '3,840 Hz Standard',
     cabinetSize: '500mm x 500mm or Custom Curving Segment',
     ipRating: 'IP40 Front / IP30 Rear',
     costFactor: 5800,
     features: [
-      'Ultra lightweight aluminum alloy frames (only 5.8kg per panel)',
-      'Intelligent angle joints supporting 15° step-less curving customization',
-      'Dual self-correcting video card signals with auto-failover mechanics',
-      'Perfect color consistency under wide 160° horizontal viewing angles'
+      'Ultra-light magnesium alloy segments (only 5.8kg) - safe for roof suspension',
+      'Step-less angle joints supporting curving configurations (+/- 15°)',
+      'Dual self-correcting receiver cards for continuous zero-interruption display',
+      'Super-wide 160° viewing angles capturing traffic from every approach'
     ]
   },
   {
     id: 'sgl-titan',
     name: 'SGL Titan Series',
     series: 'Outdoor',
-    tagline: 'Shatter-proof Heavy Outdoor Digital Billboard',
-    description: 'Engineered to withstand equatorial climates. The Titan features Common Cathode energy topology, ensuring 30% lower temperatures, massive energy savings, and spectacular 7,500 nits daytime luminance.',
+    tagline: 'METROPOLITAN WEATHERPROOF OUTDOOR BILLBOARDS',
+    description: 'Highly robust, convective-cooled outdoor billboard titans built for the harsh tropical Malaysian climate. Secure high-impact visibility along congested ring roads and highways to generate millions of weekly advertiser impressions.',
     pitches: [4.0, 5.0, 6.0, 8.0],
-    brightness: '6,500 - 8,000 nits High-luminance',
-    refreshRate: '3,840 Hz Standard',
+    brightness: '6,500 - 8,000 nits Scorching-Sun Ready',
+    refreshRate: '3,840 Hz Dynamic',
     cabinetSize: '960mm x 960mm magnesium-alloy heavy structural shell',
-    ipRating: 'IP65 Waterproof All-Weather',
+    ipRating: 'IP65 All-Weather Waterproof',
     costFactor: 4200,
     features: [
-      'Industrial-grade IP65 weatherproof seals against extreme tropical rainstorms',
-      'Exclusive Common Cathode circuit architecture reducing core operating heat',
-      'Built-in brightness sensor with auto-dimming depending on ambient sunlight',
-      'No air-conditioning needed - convective heat dissipation columns'
+      'Genuine IP65 fully weatherproof seals defending against flash tropical storms',
+      'Energy-saving Common Cathode topology slashes monthly electric power bills by 30%',
+      'Daylight optical sensors dynamically dim brightness to match night curfew rules',
+      'Fan-free natural convection cooling columns - no corporate AC cooling required'
     ]
   }
 ];
@@ -101,8 +108,9 @@ export const PRODUCTS: LedDisplayProduct[] = [
 export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'case-std-stanchart',
-    title: 'Standard Chartered Executive Lobby Wall',
+    title: 'Executive Corporate Lobby Wall',
     client: 'Standard Chartered Global Corporate Bank',
+    clientType: 'Corporate Offices / Financial Institution',
     location: 'Kuala Lumpur Financial District',
     series: 'Corporate',
     imageType: 'indoor',
@@ -110,14 +118,17 @@ export const CASE_STUDIES: CaseStudy[] = [
     pitch: 'P1.2',
     resolution: '6,720 x 2,700 Pixels (UHD Master Display)',
     totalCost: 'RM 320,000',
-    description: 'Installed a continuous, ultra-fine pixel pitch SGL Onyx LED display in the banking lobby, rendering real-time financial analytics, premium corporate branded video loops, and live greetings.',
-    challenge: 'The architectural lobby boasts dual-aspect full glass facades, resulting in glare. Standard screens were overly reflective or washed-out under intense Malaysian daylight.',
-    solution: 'Engineered SGL Onyx COB with high-nit customized calibrated output up to 1,200 nits, layered with a special anti-glare micro-diffuser cover that eliminates glare while maintaining deep black contrast.'
+    description: 'Installed an ultra-fine, seamless commercial lobby video wall to display global market indices, dynamic banking graphics, and strategic announcements, projecting premium corporate authority to high-profile clients.',
+    objective: 'Create an immediate "wow-factor" entrance experience for high-profile clients and display real-time global banking news clearly in a sunlit reception atrium.',
+    challenge: 'A high-rise lobby wall prone to severe daylight glare from multi-storey glass facades, making typical displays look washed-out and difficult to read.',
+    solution: 'Designed and deployed an Onyx COB lobby screen with 1,200-nits adjustable daylight-boost, pairing it with specialized anti-reflective surface treatment that preserves contrast under intense ambient sun rays.',
+    outcome: 'An iconic executive lobby centerpiece that immediately asserts brand prestige, completely eliminates daytime glare, and acts as a dynamic corporate communication hub.'
   },
   {
     id: 'case-std-avenuek',
-    title: 'Avenue K Floating Atrium Ribbon Display',
-    client: 'Avenue K Luxury Retail Mall',
+    title: 'Avenue K Atrium Hanging Display',
+    client: 'Avenue K Shopping Mall Complex',
+    clientType: 'Shopping Malls & Retail Centers',
     location: 'Opposite Petronas Twin Towers, KLCC',
     series: 'Retail',
     imageType: 'mall',
@@ -125,24 +136,29 @@ export const CASE_STUDIES: CaseStudy[] = [
     pitch: 'P2.0',
     resolution: '7,500 x 2,250 Pixels (Sinuous Curved Display)',
     totalCost: 'RM 480,000',
-    description: 'A spectacular concave curving LED screen suspended vertically on high-strength aircraft cables inside the main multi-storey mall atrium, captivating shoppers with fashion campaigns.',
-    challenge: 'Extremely tight load limits on the historical roof framework. Installing traditional heavy iron cabinets was structurally impossible.',
-    solution: 'Designed custom ultralight structural magnesium-carbon SGL Horizon cabinets, totaling just 14kg/sqm with frame. Engineered custom bracket lines to align sections cleanly to the structural columns.'
+    description: 'Suspended a majestic curved floating ribbon LED screen centrally within the multi-storey mall shopping gallery. The screen acts as an advertising landmark for premier luxury brands.',
+    objective: 'Increase shopper dwell-time in core mall zones and secure highly profitable advertising leases from luxury flagship brands.',
+    challenge: 'Strict mechanical overhead weight constraints on the high-ceiling glass dome, making standard heavy steel LED frames physically impossible to mount.',
+    solution: 'Engineered an ultra-light carbon-composite sub-assembly using micro Horizon panels, weighing under 14kg per square meter, safely suspended via architectural steel tension-cables.',
+    outcome: 'Increased visitor engagement and direct ad-revenue generation. Anchor tenants reported elevated brand visual exposure since deployment.'
   },
   {
     id: 'case-std-bintang',
-    title: 'Bukit Bintang Digital Landmark Billboard',
+    title: 'Bukit Bintang High-Traffic Landmark Billboard',
     client: 'City Centre Outdoor Media Corp',
-    location: 'Jalan Bukit Bintang High Traffic Crossing',
+    clientType: 'Property Developers & Billboard Operators',
+    location: 'Jalan Bukit Bintang Pedestrian Crossing',
     series: 'Outdoor',
     imageType: 'outdoor',
     size: '18m x 10m (180 sqm)',
     pitch: 'P5.0',
     resolution: '3,600 x 2,000 Pixels (Extreme Outdoor Giant)',
     totalCost: 'RM 980,000',
-    description: 'An iconic digital billboard mounted 15m above the most congested street pedestrian crossing in Malaysia, yielding 4.2 million weekly visual impressions for tier-1 luxury fashion and auto brands.',
-    challenge: 'High equatorial heat exceeding 38°C on clear afternoons, paired with flash monsoon cloudbursts, demanding reliable 24/7/365 uninterrupted thermal defense.',
-    solution: 'Deployed the SGL Titan Series with Common Cathode power configuration. This maintained screen running temperatures 14°C lower than typical standard LEDs, avoiding heat degradation without heavy energy costs.'
+    description: 'A spectacular weatherproof digital media billboard strategically positioned on Malaysia’s busiest commercial shopping crossing, capturing millions of weekly impressions.',
+    objective: 'Command major road passenger eyes and build an absolute landmark for prime advertiser content in Kuala Lumpur’s golden triangle.',
+    challenge: 'Facing extreme afternoon tropical heat up to 38°C and intense local monsoon downpours, requiring absolute rainproof sealing and active heat management.',
+    solution: 'Deployed the Titan high-luminance weatherproof screen running on energy-saving Common Cathode topology, allowing natural cooling columns to dissipate heat without heavy AC utilities.',
+    outcome: 'A robust, 24/7 high-luminance digital landmark with 35% lower operating costs, highly coveted by major fashion, tech, and automotive brands.'
   }
 ];
 

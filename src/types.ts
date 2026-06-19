@@ -17,6 +17,7 @@ export interface CaseStudy {
   id: string;
   title: string;
   client: string;
+  clientType: string;
   location: string;
   series: 'Corporate' | 'Retail' | 'Outdoor';
   imageType: 'indoor' | 'mall' | 'outdoor';
@@ -25,8 +26,10 @@ export interface CaseStudy {
   resolution: string; // e.g., "8K UHD"
   totalCost: string; // e.g., "RM 380,000"
   description: string;
+  objective: string;
   challenge: string;
   solution: string;
+  outcome: string;
 }
 
 export interface CalculatorState {

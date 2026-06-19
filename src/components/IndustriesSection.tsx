@@ -1,48 +1,48 @@
-import { Building2, ShoppingBag, Store, GraduationCap, Church, Music } from 'lucide-react';
+import { Building2, ShoppingBag, Utensils, GraduationCap, Church, Music } from 'lucide-react';
 
 export default function IndustriesSection() {
   const industries = [
     {
-      id: 'shopping-mall',
+      id: 'shopping-malls',
       title: 'Shopping Malls',
-      description: 'Grand atriums, sinuous curving ribbons, and floating banner arrays designed to capture and hold premium retail traffic.',
+      description: 'Grand center atrium displays, sinuous curved ribbons, and digital signposts designed to capture visitor attention and maximize billboard ad-leasing revenue.',
       icon: ShoppingBag,
-      tag: 'HIGH-BRIGHT'
+      tag: 'ADVERTISING REVENUE'
     },
     {
-      id: 'school',
-      title: 'Schools & Academies',
-      description: 'Direct-lit high-contrast displays for interactive lecture halls, digital scoreboards, and main assembly facilities.',
+      id: 'schools',
+      title: 'Schools',
+      description: 'High-contrast, direct-lit displays for assembly halls, active scoreboards, and administrative halls. Offers vivid presentations even under bright ambient lights.',
       icon: GraduationCap,
-      tag: 'ANTI-GLARE'
+      tag: 'EDUCATIONAL IMPACT'
     },
     {
-      id: 'church',
-      title: 'Churches & Houses of Worship',
-      description: 'Low-maintenance, extremely wide viewing-angle sanctuaries screens rendering lyric templates and high-definition video feeds.',
+      id: 'churches',
+      title: 'Churches',
+      description: 'Extremely wide horizontal viewing angles with reliable performance, designed for clear lyrics projecting and vivid sermon live-streaming.',
       icon: Church,
-      tag: 'HIGH-CONTRAST'
+      tag: 'SANCTUARY READY'
     },
     {
-      id: 'corporate-office',
-      title: 'Corporate Offices',
-      description: 'Vibrant command lobby installations, immersive executive boardroom backdrops, and active real-time diagnostic grids.',
-      icon: Building2,
-      tag: '0.9mm FINE PITCH'
-    },
-    {
-      id: 'retail-store',
-      title: 'Retail Flagship Stores',
-      description: 'Pristine, 16-bit color synchronized signage and high-refresh pillar displays designed for prestige merchandise aesthetics.',
-      icon: Store,
-      tag: 'CREATIVE CONFIGS'
-    },
-    {
-      id: 'event-hall',
-      title: 'Event & Exhibition Halls',
-      description: 'Quick-couple rental scale structures, extremely bright stage backdrops with heavy 7,680Hz fluid capture capabilities.',
+      id: 'event-halls',
+      title: 'Event Halls',
+      description: 'Ultra-fluid 7,680Hz refresh rate stages and exhibition displays. Guarantees camera-flicker-free live presentation capture for press conferences and performance keynotes.',
       icon: Music,
       tag: '7680Hz STAGE'
+    },
+    {
+      id: 'restaurants',
+      title: 'Restaurants',
+      description: 'High-luminance digital drive-thru menus, creative window banners, and immersive dining backdrops designed to increase average table sizes.',
+      icon: Utensils,
+      tag: 'INCRES FOOTFALL'
+    },
+    {
+      id: 'corporate-offices',
+      title: 'Corporate Offices',
+      description: 'Vibrant reception lobby feature walls, multi-window command dashboards, and boardroom backdrops projecting corporate prestige.',
+      icon: Building2,
+      tag: 'FINE PITCH PREMIUM'
     }
   ];
 
@@ -53,16 +53,49 @@ export default function IndustriesSection() {
       
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
-        {/* Editorial Heading Structure */}
-        <div className="max-w-3xl mb-16 text-left">
+        {/* Editorial Heading Structure with Core Business Answers */}
+        <div className="mb-20">
           <div className="editorial-title-badge mb-4">
             <span className="w-1.5 h-1.5 bg-[#22d3ee] rounded-full mr-1.5 inline-block"></span>
-            SECTOR EXCELLENCE
+            SGL CORE SOLUTONS DECK
           </div>
-          <h2 className="text-3xl md:text-5xl font-display font-black tracking-tighter text-white uppercase leading-none">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-black tracking-tighter text-white uppercase leading-none mb-10 text-left">
+            Who We Are & How We Drive Growth
+          </h2>
+          
+          {/* Business Core Answers Grid to engage non-technical decision makers instantly */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-6 sm:p-8 bg-[#05070a]/90 border border-white/10 mb-16 rounded-none text-left">
+            <div className="space-y-3">
+              <span className="font-mono text-[9px] text-[#22d3ee] font-bold tracking-[0.2em] block uppercase">// 1. WHAT DOES SGL DO?</span>
+              <h3 className="font-display font-black text-sm text-white uppercase tracking-tight">Spectacular Custom LED Spaces</h3>
+              <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                SGL designs, supplies, and installs high-performance digital displays. We manage projects of any budget range (from premium reception screens to massive building crown boards valued from RM50,000 to RM500,000+), utilizing safety-certified structural brackets.
+              </p>
+            </div>
+            <div className="space-y-3 border-t md:border-t-0 md:border-l border-white/5 pt-5 md:pt-0 md:pl-8">
+              <span className="font-mono text-[9px] text-[#22d3ee] font-bold tracking-[0.2em] block uppercase">// 2. WHO IS IT FOR?</span>
+              <h3 className="font-display font-black text-sm text-white uppercase tracking-tight">Malaysian Commercial Landmark Teams</h3>
+              <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                Our screens are optimized for shopping malls, churches, restaurants, universities, event spaces, corporate boardrooms, and property developers looking to attract high premium tenant leases and maximize viewer footfall.
+              </p>
+            </div>
+            <div className="space-y-3 border-t md:border-t-0 md:border-l border-white/5 pt-5 md:pt-0 md:pl-8">
+              <span className="font-mono text-[9px] text-emerald-400 font-bold tracking-[0.2em] block uppercase">// 3. WHY CONTACT SGL TODAY?</span>
+              <h3 className="font-display font-black text-sm text-[#10b981] uppercase tracking-tight font-sans">Zero Technical Guesswork</h3>
+              <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                We eliminate technical guesswork for non-engineers. SGL provides full pre-project site safety surveys, custom layout calibration, an extensive 36-month local parts warranty, and localized 48-hour standby support.
+              </p>
+            </div>
+          </div>
+
+          <div className="editorial-title-badge mb-4">
+            <span className="w-1.5 h-1.5 bg-[#22d3ee] rounded-full mr-1.5 inline-block"></span>
+            SECTOR CODES
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black tracking-tighter text-white uppercase leading-none">
             INDUSTRIES WE SERVE
           </h2>
-          <p className="mt-4 text-sm text-slate-400 font-sans leading-relaxed max-w-xl">
+          <p className="mt-4 text-xs sm:text-sm text-slate-400 font-sans leading-relaxed max-w-xl text-left">
             SGL designs and deploys optimized physical LED screen hardware tailored to the distinct acoustic, visual, load-bearing, and heat conditions of premium commercial sectors in Malaysia.
           </p>
         </div>

@@ -28,7 +28,7 @@ export default function CertificationSection() {
     },
     {
       id: 'installation-team',
-      title: 'Professional Installation',
+      title: 'Professional Installation Team',
       authority: 'Licensed SGL Engineers',
       description: 'SGL deployed structural, electrical, and audio-video integration technicians covering safe mechanical rigging and calibrated color balancing.',
       icon: Wrench,
