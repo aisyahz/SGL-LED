@@ -40,15 +40,15 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
             <div className="space-y-2 text-xs">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-sky-400" />
-                <span>Level 32, Menara Petronas 2, KLCC, 50088 Kuala Lumpur, Malaysia</span>
+                <span>238, Persiaran Pegaga, 41200 Klang Selangor, Malaysia</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-sky-400" />
-                <span>+60 (3) 2182-9000 (Consulting Bid Desk)</span>
+                <span>+60 (10) 425-7824 (Daniel T | Managing Director)</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-sky-400" />
-                <span>bids@sgldigital.com.my</span>
+                <span>lengzaiiteng98@gmail.com</span>
               </div>
             </div>
           </div>
