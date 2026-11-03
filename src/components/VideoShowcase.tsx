@@ -14,7 +14,17 @@ export default function VideoShowcase() {
         <div className="grid gap-8 md:grid-cols-2">
           {videos.map(video => (
             <article key={video.url} className="overflow-hidden border border-white/10 bg-[#111827]">
-              <iframe src={video.embed} title={video.title} loading="lazy" className="aspect-video w-full border-0" allow="encrypted-media; picture-in-picture; fullscreen" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" />
+              <div className="relative w-full" style={{ aspectRatio: video.aspectRatio ?? '16 / 9' }}>
+                <iframe
+                  src={video.embed}
+                  title={video.title}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full border-0"
+                  allow="autoplay; picture-in-picture; clipboard-write; encrypted-media"
+                  allowFullScreen
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+              </div>
               <h3 className="p-5 font-display text-lg text-white">{video.title}</h3>
             </article>
           ))}

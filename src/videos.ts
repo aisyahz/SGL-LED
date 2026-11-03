@@ -1,7 +1,8 @@
-// Add approved YouTube or Vimeo video URLs here. Blank/invalid entries stay hidden.
+// Add approved, embeddable YouTube or Vimeo share URLs here. Vimeo review links
+// are not embed URLs and stay hidden.
 export const SHOWCASE_VIDEOS = [
-  { title: 'SGL LED showcase', url: 'https://vimeo.com/1242768365?fl=tl&fe=ec' },
-  { title: 'SGL LED installation', url: 'https://vimeo.com/reviews/4dfadf41-e3a1-4742-95e2-b0d8d771d075/videos/1242769122' },
+  { title: 'sglled1', url: 'https://player.vimeo.com/video/1242768365?badge=0&autopause=0&player_id=0&app_id=58479', aspectRatio: '9 / 16' },
+  { title: 'sglled2', url: 'https://player.vimeo.com/video/1242769122?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479', aspectRatio: '9 / 16' },
 ];
 
 export function videoEmbedUrl(value: string): string | null {
@@ -29,6 +30,10 @@ export function videoEmbedUrl(value: string): string | null {
     const privateHash = url.searchParams.get('h');
     if (privateHash && !/^[\w-]+$/.test(privateHash)) return null;
     const embedUrl = new URL(`https://player.vimeo.com/video/${id}`);
+    for (const key of ['title', 'byline', 'portrait', 'badge', 'autopause', 'player_id', 'app_id']) {
+      const value = url.searchParams.get(key);
+      if (value) embedUrl.searchParams.set(key, value);
+    }
     if (privateHash) embedUrl.searchParams.set('h', privateHash);
     return embedUrl.toString();
   } catch {

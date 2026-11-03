@@ -30,15 +30,21 @@ for (const key of Object.keys(pricing)) for (const [width, height] of [[1,1], [4
   assert.equal(vm.runInNewContext(quoteExpression, context), Math.round(width * height * pricing[key].ratePerSqm));
 }
 const { SHOWCASE_VIDEOS, videoEmbedUrl } = loadTS('src/videos.ts');
-assert.equal(SHOWCASE_VIDEOS[0].url, 'https://vimeo.com/1242768365?fl=tl&fe=ec');
-assert.equal(SHOWCASE_VIDEOS[1].url, 'https://vimeo.com/reviews/4dfadf41-e3a1-4742-95e2-b0d8d771d075/videos/1242769122');
+assert.equal(SHOWCASE_VIDEOS[0].url, 'https://player.vimeo.com/video/1242768365?badge=0&autopause=0&player_id=0&app_id=58479');
+assert.equal(SHOWCASE_VIDEOS[0].aspectRatio, '9 / 16');
+assert.equal(SHOWCASE_VIDEOS[1].url, 'https://player.vimeo.com/video/1242769122?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479');
+assert.equal(SHOWCASE_VIDEOS[1].aspectRatio, '9 / 16');
+assert.ok(SHOWCASE_VIDEOS.every(video => videoEmbedUrl(video.url) !== null));
 for (const input of ['', 'bad', 'https://example.com/watch?v=abcdefghijk', 'javascript:alert(1)', 'https://youtube.com/watch?v=short', 'https://vimeo.com/not-a-video']) assert.equal(videoEmbedUrl(input), null);
 for (const input of ['https://youtu.be/abcdefghijk', 'https://www.youtube.com/watch?v=abcdefghijk', 'https://youtube.com/shorts/abcdefghijk']) assert.equal(videoEmbedUrl(input), 'https://www.youtube-nocookie.com/embed/abcdefghijk');
 assert.equal(videoEmbedUrl('https://www.youtube-nocookie.com/embed/abcdefghijk'), 'https://www.youtube-nocookie.com/embed/abcdefghijk');
 assert.equal(videoEmbedUrl('https://vimeo.com/123456789'), 'https://player.vimeo.com/video/123456789');
 assert.equal(videoEmbedUrl('https://player.vimeo.com/video/123456789?h=private123'), 'https://player.vimeo.com/video/123456789?h=private123');
-assert.equal(videoEmbedUrl(SHOWCASE_VIDEOS[0].url), 'https://player.vimeo.com/video/1242768365');
-assert.equal(videoEmbedUrl(SHOWCASE_VIDEOS[1].url), null);
+assert.equal(videoEmbedUrl('https://vimeo.com/1242768365?fl=tl&fe=ec'), 'https://player.vimeo.com/video/1242768365');
+assert.equal(videoEmbedUrl(SHOWCASE_VIDEOS[0].url), 'https://player.vimeo.com/video/1242768365?badge=0&autopause=0&player_id=0&app_id=58479');
+assert.equal(videoEmbedUrl(SHOWCASE_VIDEOS[1].url), 'https://player.vimeo.com/video/1242769122?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479');
+assert.equal(videoEmbedUrl('https://vimeo.com/reviews/d456047f-a573-4bcd-8a35-fcfe8e090ae9/videos/1242768365'), null);
+assert.equal(videoEmbedUrl('https://vimeo.com/reviews/4dfadf41-e3a1-4742-95e2-b0d8d771d075/videos/1242769122'), null);
 const html = fs.readFileSync('index.html','utf8');
 assert.ok(html.includes('<title>Professional LED Screen Supplier &amp; Installation in Malaysia</title>'));
 const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
