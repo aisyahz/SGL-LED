@@ -123,7 +123,7 @@ export default function IndustriesSection() {
               <span className="font-mono text-[9px] text-emerald-400 font-bold tracking-[0.2em] block uppercase">// 3. WHY CONTACT SGL TODAY?</span>
               <h3 className="font-display font-black text-sm text-[#10b981] uppercase tracking-tight font-sans">Zero Technical Guesswork</h3>
               <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                We eliminate technical guesswork for non-engineers. SGL provides full pre-project site safety surveys, custom layout calibration, an extensive 24-month local parts warranty, and localized 48-hour standby support.
+                SGL supplies and installs indoor and outdoor LED display systems and provides maintenance support for completed displays.
               </p>
             </div>
           </div>
@@ -156,6 +156,8 @@ export default function IndustriesSection() {
                     src={ind.image} 
                     alt={ind.title} 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105"
+                    loading="lazy"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                   />
                   {/* Subtle gradient overlay to merge with dark aesthetic card container */}
@@ -246,6 +248,7 @@ export default function IndustriesSection() {
                   src={selectedImage.url}
                   alt={selectedImage.title}
                   className="max-w-full max-h-[70vh] md:max-h-[75vh] object-contain block mx-auto"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                 />
               </div>

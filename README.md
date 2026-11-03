@@ -14,9 +14,9 @@ SGL has shifted from standard speculative hardware checklists to a **Value-First
 * **Reliable 24/7 Performance**: High-fidelity continuous uptime supported by energy-efficient Common Cathode technology (reducing thermal load by 14°C and power usage by up to 30%) with persistent camera-flicker-free visual clarity.
 
 ### B. Malaysian Project Safeguard & Engineering Footprint:
-* **Kuala Lumpur HQ**: Main technical design and dispatch project desk.
+* **Company Address**: 26 Jalan Airport City 2, Kota Warisan, 43900 Bandar Baru Salak Tinggi, Selangor, Malaysia.
 * **Nationwide Rigging Coverage**: Active mechanical rigging and architectural display installation teams operating in both region Peninsula (Semenyih) and East Malaysia (Borneo).
-* **48-Hour Technical Standby**: Dedicated localized maintenance response with structured 24-month local parts warranties, eliminating technical guesswork and import delays.
+* **LED Display Maintenance**: Maintenance support for indoor and outdoor LED display systems.
 
 ---
 
@@ -58,7 +58,7 @@ The codebase is organized in a highly modular pattern to prevent unified context
 │         ├── TechUSPSection.tsx                # Core specifications on Common Cathode, COB Protection, and 7680Hz drivers
 │         ├── CertificationSection.tsx          # Real standards alignment (ISO 9001:2015, CE safety, RoHS components)
 │         ├── LeadCaptureBanner.tsx             # High-conversion terminal banner for senior structural layout bids
-│         ├── Footer.tsx                        # Legal metadata, Petronas Towers KLCC address registry, and technical indexes
+│         ├── Footer.tsx                        # Verified company contact details, address map, and technical indexes
 │         └── ConsultationDialog.tsx            # Full interactive custom modal calculating live estimate pricing models
 ├── App.tsx                                     # Primary component staging sections, modal states, and navigation routes
 ├── types.ts                                    # Central TypeScript schema definitions for strong static engineering typing
@@ -78,9 +78,9 @@ Inside `ConsultationDialog.tsx` and `ProductCalculator.tsx`, custom commercial v
     *   $\text{Width } (W)$ in meters
     *   $\text{Height } (H)$ in meters
     *   $\text{Product Rate } (R)$ of Selected Product:
-        *   Corporate product: `P1.86 Indoor Led Display` at **RM 3,200** per sqm.
-        *   Retail product: `P2.5 Indoor Led Display` at **RM 2,800** per sqm.
-        *   Outdoor product: `P4 Led Display Water Proof` at **RM 3,500** per sqm.
+        *   Corporate product: `P1.86 Indoor Led Display` at **RM 4,500** per sqm.
+        *   Retail product: `P2.5 Indoor Led Display` at **RM 3,200** per sqm.
+        *   Outdoor product: `P3.91 Outdoor LED Display` at **RM 4,500** per sqm.
 
 $$\text{Estimated Project Cost (RM)} = H \times W \times R$$
 

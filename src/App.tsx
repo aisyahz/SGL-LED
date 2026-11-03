@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useSectionReveal } from './useSectionReveal';
+import { useCallback, useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroSlider from './components/HeroSlider';
 import ProductCatalog from './components/ProductCatalog';
@@ -9,22 +10,29 @@ import TechUSPSection from './components/TechUSPSection';
 import CertificationSection from './components/CertificationSection';
 import FaqSection from './components/FaqSection';
 import LeadCaptureBanner from './components/LeadCaptureBanner';
+import VideoShowcase from './components/VideoShowcase';
 import Footer from './components/Footer';
 import ConsultationDialog from './components/ConsultationDialog';
 import { LedDisplayProduct } from './types';
+import { COMPANY, COMPANY_WHATSAPP_URL } from './company';
 
 export default function App() {
+  useSectionReveal();
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<LedDisplayProduct | null>(null);
 
-  // Unified scroll routing for modular navigation anchors
+
+  const handleCloseConsultation = useCallback(() => {
+    setIsConsultationOpen(false);
+  }, []);
+
   const handleNavigateToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       const topOffset = element.getBoundingClientRect().top + window.scrollY - 75; // Subtract navbar thickness
       window.scrollTo({
         top: topOffset,
-        behavior: 'smooth',
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
       });
     }
   };
@@ -42,7 +50,7 @@ export default function App() {
     // Smooth scroll down to the interactive calculator to let them inspect first, or directly trigger dialog
     const calcElement = document.getElementById('calculator-section');
     if (calcElement) {
-      calcElement.scrollIntoView({ behavior: 'smooth' });
+      calcElement.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     }
   };
 
@@ -67,7 +75,8 @@ export default function App() {
       />
 
       {/* Main Page Blocks */}
-      <main id="main-content-flow">
+      <a className="skip-link" href="#main-content-flow">Skip to main content</a>
+      <main id="main-content-flow" tabIndex={-1}>
         {/* Rotating 3-Background Hero Section (left side dark aligned, right side image, seamless floor reflections) */}
         <HeroSlider
           onNavigateToSection={handleNavigateToSection}
@@ -87,6 +96,8 @@ export default function App() {
 
         {/* Heavy Commercial Case Studies (Kuala Lumpur, Avenue K, Standard Chartered RM100k+ portfolio) */}
         <CasePortfolio />
+
+        <VideoShowcase />
 
         {/* Technical USP Specs Block (Common Cathode power grids, COB encapsulation structure, 7680Hz drivers) */}
         <TechUSPSection />
@@ -108,7 +119,7 @@ export default function App() {
 
       {/* Elegant, Swiss-modern floating WhatsApp Button */}
       <a
-        href="https://wa.me/60104257824?text=Hello%20SGL%20International%20LED,%20I%20would%20like%20to%20request%20a%20quotation%20for%20an%20LED%20display."
+        href={COMPANY_WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 left-6 z-50 flex items-center gap-2 px-4 py-2.5 bg-[#111827] border border-emerald-500/30 hover:border-emerald-400 text-white font-mono text-[9px] tracking-[0.2em] uppercase transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.15)] group rounded-none"
@@ -118,13 +129,13 @@ export default function App() {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
         </span>
-        <span className="font-bold text-emerald-400 group-hover:text-emerald-350 transition-colors">LIVE ENG SUPPORT</span>
+        <span className="font-bold text-emerald-400 group-hover:text-emerald-350 transition-colors">CHAT WITH {COMPANY.contactName.toUpperCase()}</span>
       </a>
 
       {/* Interactive RFP Project bid planner dialog */}
       <ConsultationDialog
         isOpen={isConsultationOpen}
-        onClose={() => setIsConsultationOpen(false)}
+        onClose={handleCloseConsultation}
         preselectedProduct={selectedProduct}
       />
     </div>

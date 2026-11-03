@@ -134,6 +134,7 @@ export default function ProductCalculator() {
                   <button
                     key={mode}
                     onClick={() => handleSeriesChange(mode)}
+                    aria-pressed={seriesMode === mode}
                     className={`px-3 py-2.5 rounded-none text-[10px] font-bold font-display uppercase tracking-widest text-center cursor-pointer transition-all border ${
                       seriesMode === mode
                         ? 'bg-white border-white text-black font-extrabold'
@@ -163,6 +164,7 @@ export default function ProductCalculator() {
                   <button
                     key={p}
                     onClick={() => setPitch(p)}
+                    aria-pressed={pitch === p}
                     className={`py-2 rounded-none font-mono text-xs font-bold border cursor-pointer transition-all ${
                       pitch === p
                         ? 'bg-blue-600/15 border-blue-500 text-sky-400'
@@ -425,7 +427,7 @@ export default function ProductCalculator() {
               <ul className="space-y-2 text-[10px] text-slate-300 font-mono">
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
-                  Kuala Lumpur HQ Project Desk
+                  Selangor Project Planning Desk
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />

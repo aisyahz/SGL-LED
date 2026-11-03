@@ -27,6 +27,7 @@ export default function FAQItem({
       {/* Accordion Trigger */}
       <button
         onClick={onToggle}
+        aria-expanded={isOpen}
         className="w-full text-left p-6 sm:p-8 flex justify-between items-center gap-4 cursor-pointer focus:outline-none group hover:bg-white/[0.01]"
       >
         <span className="font-display font-black text-sm sm:text-base md:text-lg text-white uppercase tracking-tight group-hover:text-sky-400 transition-colors">
@@ -39,8 +40,9 @@ export default function FAQItem({
 
       {/* Animated Collapsible Answer Block */}
       <div
+        hidden={!isOpen}
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-[300px] border-t border-white/5 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+          isOpen ? 'max-h-none border-t border-white/5 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
         }`}
       >
         <div className="p-6 sm:p-8 bg-[#1f2937]/30 font-sans">

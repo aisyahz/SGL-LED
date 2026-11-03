@@ -75,7 +75,7 @@ export default function CaseStudyCard({
         </div>
 
         <div className="mt-8 pt-4 border-t border-white/5 text-[10px] text-slate-400 leading-normal font-sans">
-          *All SGL projects are real, engineering-checked LED installations deployed with structural warranty contracts.
+          Project summary and installation details.
         </div>
       </div>
 

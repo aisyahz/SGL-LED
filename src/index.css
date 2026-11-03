@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;805;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -13,9 +13,23 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
   body {
     @apply bg-[#0b1120] text-[#f8fafc] antialiased font-sans overflow-x-hidden selection:bg-blue-600/30 selection:text-white;
   }
+
+  :focus-visible {
+    outline: 2px solid #38bdf8;
+    outline-offset: 3px;
+  }
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
 }
 
 /* Editorial Aesthetic specialized rules */
@@ -68,4 +82,76 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #1f2937;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
+
+/* Progressive enhancement: content stays visible without observers. */
+.section-reveal {
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.section-reveal:focus-within {
+  opacity: 1;
+  transform: none;
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  transform: translateY(-160%);
+  z-index: 120;
+  padding: 12px 20px;
+  background: #fff;
+  color: #0b1120;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.product-card:hover,
+.product-card:focus-within {
+  border-color: #38bdf880;
+  box-shadow: 0 16px 48px #0003;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .product-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pending {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  main > section:not(#hero-slider-root) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 }

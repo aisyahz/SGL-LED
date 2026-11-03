@@ -30,13 +30,13 @@ export default function ProductCard({
   return (
     <div
       id={id}
-      className={`bg-[#111827] border border-white/8 hover:border-white/20 rounded-none flex flex-col justify-between transition-all duration-300 group shadow-xl relative overflow-hidden ${className}`}
+      className={`product-card bg-[#111827] border border-white/8 hover:border-sky-400/40 hover:-translate-y-1 hover:shadow-2xl rounded-none flex flex-col justify-between transition-all duration-300 group shadow-xl relative overflow-hidden ${className}`}
     >
       {/* Visual subtle dynamic ribbon matching application series */}
       <div
         className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${
           product.series === 'Corporate'
-            ? 'from-blue-650 to-blue-550'
+            ? 'from-blue-600 to-blue-400'
             : product.series === 'Retail'
             ? 'from-blue-500 to-sky-400'
             : 'from-blue-700 to-indigo-600'
@@ -46,7 +46,7 @@ export default function ProductCard({
       {/* Internal body */}
       <div className="p-6 sm:p-8">
         {/* Header tags */}
-        <div className="flex justify-between items-center mb-5">
+        <div className="flex flex-wrap gap-3 justify-between items-center mb-5">
           <InfoBadge variant="gray">{product.series} SPECIALIST</InfoBadge>
           <span className="font-mono text-[9px] text-sky-400 tracking-[0.1em] font-medium uppercase">
             Premium Project Tier
@@ -91,7 +91,7 @@ export default function ProductCard({
           className="w-full justify-center gap-2"
           onClick={() => onSelect(product)}
         >
-          Select & Calculate Pitch
+          Get a Quote
           <ArrowRight className="w-3.5 h-3.5" />
         </Button>
       </div>

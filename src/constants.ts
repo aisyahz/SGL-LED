@@ -8,9 +8,9 @@ import heroOutdoorImg from './assets/images/hero_outdoor_billboard_1781800816748
 export const HERO_SLIDES = [
   {
     id: 'slide-1',
-    heading: "Enhanced Visitor Experience",
+    heading: "LED displays. Lasting impressions.",
     tagline: 'ENGINEERED IN MALAYSIA. INSTALLED NATIONWIDE.',
-    description: 'Professional indoor LED displays designed to engage, convert, and inspire. Serving corporate offices, universities, churches, and restaurants across Malaysia with local Kuala Lumpur support teams and 48-hour standby response.',
+    description: 'Professional indoor LED displays for corporate offices, universities, churches, and restaurants. SGL supplies, installs, and maintains LED display systems in Malaysia.',
     image: heroIndoorImg,
     badge: 'ENHANCED VISITOR EXPERIENCE',
     accentColor: 'from-cyan-500 to-blue-500',
@@ -36,14 +36,14 @@ export const HERO_SLIDES = [
     id: 'slide-3',
     heading: 'Reliable 24/7 Performance',
     tagline: 'INTERNATIONAL QUALITY. MALAYSIAN SUPPORT.',
-    description: 'Shatter-proof weatherproof outdoor billboards and indoor command centers designed for tropical microclimates. Deployed on energy-saving circuit systems with a full 24-month local warranty.',
+    description: 'Weather-resistant outdoor LED displays and indoor command screens for commercial projects in Malaysia. SGL supplies, installs, and maintains indoor and outdoor display systems.',
     image: heroOutdoorImg,
     badge: 'RELIABLE 24/7 PERFORMANCE',
     accentColor: 'from-blue-600 to-indigo-500',
-    meta: { size: 'Up to 300 SQM', pitch: 'P4 Waterproof', tech: 'Boardrooms & Live Staging' },
+    meta: { size: 'Up to 300 SQM', pitch: 'P3.91 Outdoor', tech: 'Boardrooms & Live Staging' },
     industry: 'Boardrooms, High-Traffic Highways, Stage Halls, Public Centers',
     useCase: 'Weatherproof high-nit billboards, 24/7 command displays, premium conference walls',
-    benefit: 'Guarantee camera-flicker-free visual continuity, lower power consumption, and provide 24-month local parts support'
+    benefit: 'Outdoor LED display supply, professional installation, and ongoing maintenance support'
   }
 ];
 
@@ -51,17 +51,17 @@ export const PRICING_PRODUCTS = {
   Corporate: {
     productName: 'P1.86 Indoor Led Display',
     pitch: 1.86,
-    ratePerSqm: 3200
+    ratePerSqm: 4500
   },
   Retail: {
     productName: 'P2.5 Indoor Led Display',
     pitch: 2.5,
-    ratePerSqm: 2800
+    ratePerSqm: 3200
   },
   Outdoor: {
-    productName: 'P4 Led Display Water Proof',
-    pitch: 4.0,
-    ratePerSqm: 3500
+    productName: 'P3.91 Outdoor Led Display',
+    pitch: 3.91,
+    ratePerSqm: 4500
   }
 } as const;
 

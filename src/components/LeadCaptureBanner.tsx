@@ -45,7 +45,7 @@ export default function LeadCaptureBanner({ onOpenConsultation }: LeadCaptureBan
             size="lg"
             onClick={() => {
               const el = document.getElementById('tech-section');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
+              if (el) el.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
             }}
             id="bottom-cta-learn-btn"
             className="w-full sm:w-auto h-[54px] md:h-[54px]"
@@ -56,11 +56,10 @@ export default function LeadCaptureBanner({ onOpenConsultation }: LeadCaptureBan
 
         {/* Floating security indicators */}
         <p className="text-[9px] text-slate-500 font-mono tracking-[0.18em] uppercase pt-4">
-          • KUALA LUMPUR REGIONAL SERVICE OFFICE • 3-YEAR WARRANTY • LOCAL MONSOON PROTECTION INDEX IP65 •
+          • SELANGOR, MALAYSIA • INDOOR & OUTDOOR LED DISPLAYS • SUPPLY, INSTALLATION & MAINTENANCE •
         </p>
 
       </div>
     </section>
   );
 }
-

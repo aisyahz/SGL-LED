@@ -1,5 +1,6 @@
-import { ArrowUp, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowUp, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import logoImg from '../assets/images/logo-sgl.jpeg';
+import { COMPANY, COMPANY_ADDRESS, COMPANY_MAP_EMBED_URL, COMPANY_WHATSAPP_URL } from '../company';
 
 interface FooterProps {
   onNavigateToSection: (sectionId: string) => void;
@@ -7,7 +8,7 @@ interface FooterProps {
 
 export default function Footer({ onNavigateToSection }: FooterProps) {
   const handleScrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   };
 
   return (
@@ -19,7 +20,7 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
           <div className="md:col-span-5 space-y-6">
             <div className="flex items-center gap-3">
               <div className="bg-white w-12 h-12 rounded-none border border-white/15 p-1 flex items-center justify-center overflow-hidden shrink-0">
-                <img 
+                <img loading="lazy" decoding="async"
                   src={logoImg} 
                   alt="SGL International LED Sdn Bhd Logo" 
                   className="w-full h-full object-contain p-0.5"
@@ -34,21 +35,29 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-              SGL is Southeast Asia&apos;s leading engineering and procurement force specializing in serious, large-footprint commercial LED displays with true Common Cathode energy efficiency and P1.86, P2.5, and P4 pixels.
+              SGL supplies, installs, and maintains indoor and outdoor LED displays for businesses across Malaysia, including P1.86, P2.5, and P3.91 pixel pitches.
             </p>
 
             <div className="space-y-2 text-xs">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-sky-400" />
-                <span>238, Persiaran Pegaga, 41200 Klang Selangor, Malaysia</span>
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-sky-400 shrink-0" />
+                <address className="not-italic">{COMPANY_ADDRESS}</address>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-sky-400" />
-                <span>+60 (10) 425-7824 (Daniel T | Managing Director)</span>
+                <a href={`tel:${COMPANY.phoneLink}`}>{COMPANY.phoneDisplay} ({COMPANY.contactName} | {COMPANY.contactPosition})</a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-sky-400" />
-                <span>lengzaiiteng98@gmail.com</span>
+                <a className="break-all" href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-sky-400" />
+                <a href={COMPANY.website} target="_blank" rel="noopener noreferrer">sglled.com</a>
+              </div>
+              <div className="flex items-center gap-2">
+                <MessageCircle className="w-4 h-4 text-sky-400" />
+                <a href={COMPANY_WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp {COMPANY.contactName}</a>
               </div>
             </div>
           </div>
@@ -105,7 +114,7 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
             <div className="border border-white/8 bg-white/[0.01] overflow-hidden rounded-none">
               <iframe
                 title="SGL International LED location map"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3984.2813163357605!2d101.4316!3d3.0189!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdab5faf497c57%3A0x5a44030984796556!2s238%2C%20Persiaran%20Pegaga%2C%20Taman%20Bayu%20Perdana%2C%2042000%20Pelabuhan%20Klang%2C%20Selangor!5e0!3m2!1sen!2smy!4v1781848443614!5m2!1sen!2smy"
+                src={COMPANY_MAP_EMBED_URL}
                 className="h-64 w-full border-0 grayscale contrast-125"
                 allowFullScreen
                 loading="lazy"
@@ -119,7 +128,7 @@ export default function Footer({ onNavigateToSection }: FooterProps) {
         {/* Footnote and scroll to top panel */}
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
           <p className="text-slate-500 font-sans">
-            &copy; {new Date().getFullYear()} SGL International LED Sdn Bhd. All rights reserved. Malaysia's LED Display Specialist. Unit 32-02, Menara Petronas KLCC.
+            &copy; {new Date().getFullYear()} {COMPANY.name}. All rights reserved. Malaysia&apos;s LED display supply, installation, and maintenance specialist.
           </p>
           <button
             onClick={handleScrollToTop}

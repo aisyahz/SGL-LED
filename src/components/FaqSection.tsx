@@ -16,16 +16,20 @@ export default function FaqSection() {
       answer: 'Yes, SGL provides complete on-site engineering assessments prior to production. We evaluate structural wall-mount load capacities, sub-frame anchoring parameters, and calculate exact electrical distribution box load draws.'
     },
     {
+      question: 'Do you provide LED display maintenance?',
+      answer: 'SGL supports maintenance for indoor and outdoor LED display systems. Contact SGL International LED at daniel6688@sglled.com or 010 425 7824 to discuss your display.'
+    },
+    {
       question: 'What warranty is provided?',
-      answer: 'All SGL flagship installations include a comprehensive 2-year warranty covering all electronic components, power units, and pixel modules. We operate a localized, prompt 48-hour Service Level Agreement (SLA) repair/replacement backup dispatch from our Kuala Lumpur hub.'
+      answer: 'For current warranty information, contact SGL International LED at daniel6688@sglled.com or 010 425 7824.'
     },
     {
       question: 'Which pixel pitch should I choose?',
-      answer: 'Pixel pitch selection depends on the minimum viewing distance and installation environment. For corporate displays, choose P1.86 Indoor Led Display. For retail indoor displays, choose P2.5 Indoor Led Display. For outdoor waterproof installations, choose P4 Led Display Water Proof.'
+      answer: 'Pixel pitch selection depends on the minimum viewing distance and installation environment. For corporate displays, choose P1.86 Indoor Led Display. For retail indoor displays, choose P2.5 Indoor Led Display. For outdoor installations, choose P3.91 Outdoor Led Display.'
     },
     {
       question: 'Do you cover all Malaysia?',
-      answer: 'Yes, SGL’s fully certified mechanical and AV technicians deploy across West Malaysia (Kuala Lumpur, Penang, Johor, East Coast) and East Malaysia (major hubs in Sabah and Sarawak).'
+      answer: 'SGL is based in Selangor. Contact Daniel T to discuss your project location and service availability.'
     }
   ];
 
@@ -66,4 +70,3 @@ export default function FaqSection() {
     </section>
   );
 }
-

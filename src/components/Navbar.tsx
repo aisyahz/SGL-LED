@@ -20,7 +20,8 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
         setScrolled(false);
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -35,6 +36,12 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
       document.body.style.overflow = '';
     };
   }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    const close = (e: KeyboardEvent) => { if (e.key === "Escape") { setMobileMenuOpen(false); document.getElementById("mobile-menu-toggle")?.focus(); } };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
 
   const navItems = [
     { label: 'LED Solutions', id: 'solutions-section', icon: Layers },
@@ -57,7 +64,7 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
           {/* Logo Brand Zone */}
           <button
             onClick={() => {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
               setMobileMenuOpen(false);
             }}
             className="flex flex-col items-start cursor-pointer group"
@@ -74,7 +81,7 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
           </button>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1" aria-label="Desktop Navigation">
+          <nav className="hidden xl:flex items-center gap-1" aria-label="Desktop Navigation">
             {navItems.map((item) => {
               return (
                 <button
@@ -91,7 +98,7 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
           </nav>
 
           {/* CTA Actions */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden xl:flex items-center gap-3">
             <button
               onClick={onOpenConsultation}
               className="px-5 py-2.5 bg-transparent border border-white/25 text-white hover:text-black hover:bg-white hover:border-white font-display text-[10px] font-bold uppercase tracking-[0.25em] transition-all duration-300 cursor-pointer"
@@ -102,11 +109,13 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
           </div>
 
           {/* Mobile Menu Actuator */}
-          <div className="flex md:hidden">
+          <div className="flex xl:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-1.5 text-slate-300 hover:text-white rounded-sm border border-white/10 hover:bg-white/5"
               aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
               id="mobile-menu-toggle"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -120,11 +129,12 @@ export default function Navbar({ onNavigateToSection, onOpenConsultation }: Navb
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
+            id="mobile-navigation"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-[#111827]/98 border-b border-white/8 overflow-hidden"
+            className="xl:hidden bg-[#111827]/98 border-b border-white/8 overflow-hidden"
           >
             <div className="px-6 py-6 space-y-3 max-w-7xl mx-auto">
               {navItems.map((item) => {

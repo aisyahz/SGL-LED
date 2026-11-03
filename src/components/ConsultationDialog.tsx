@@ -1,8 +1,9 @@
-import { useState, FormEvent } from 'react';
+import { useEffect, useState, useRef, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PhoneCall, X, Send, CheckCircle, Calculator, FileText, Zap, RefreshCw } from 'lucide-react';
 import { LedDisplayProduct } from '../types';
 import { PRICING_PRODUCTS } from '../constants';
+import { COMPANY, COMPANY_WHATSAPP_URL } from '../company';
 
 interface ConsultationDialogProps {
   isOpen: boolean;
@@ -26,16 +27,34 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Prefill when preselectedProduct changes
-  useState(() => {
-    if (preselectedProduct) {
+  useEffect(() => {
+    if (isOpen && preselectedProduct) {
       setFormData((prev) => ({
         ...prev,
         projectType: preselectedProduct.series,
         pitch: preselectedProduct.pitches[0] || PRICING_PRODUCTS.Corporate.pitch
       }));
     }
-  });
+  }, [isOpen, preselectedProduct]);
+
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!isOpen) return;
+    const previous = document.activeElement as HTMLElement | null;
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    dialogRef.current?.focus();
+    const keydown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+      if (event.key !== 'Tab') return;
+      const items = Array.from<HTMLElement>(dialogRef.current?.querySelectorAll<HTMLElement>('button:not(:disabled), input, select, textarea, a[href]') || []);
+      const first = items[0], last = items[items.length - 1];
+      if (event.shiftKey && (document.activeElement === first || document.activeElement === dialogRef.current)) { event.preventDefault(); last?.focus(); }
+      else if (!event.shiftKey && (document.activeElement === last || document.activeElement === dialogRef.current)) { event.preventDefault(); first?.focus(); }
+    };
+    document.addEventListener('keydown', keydown);
+    return () => { document.body.style.overflow = overflow; document.removeEventListener('keydown', keydown); previous?.focus(); };
+  }, [isOpen, onClose]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -74,7 +93,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           
           {/* Dark Backdrop modal blur */}
           <motion.div
@@ -87,6 +106,11 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
 
           {/* Dialog Container */}
           <motion.div
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="quote-dialog-title"
+            tabIndex={-1}
             initial={{ opacity: 0, scale: 0.95, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
@@ -105,17 +129,22 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
             </button>
 
             {/* Left accent column / Top banner for branding */}
-            <div className="bg-white/[0.01] border-b border-white/10 p-6 flex items-center gap-3">
+            <div className="bg-white/[0.01] border-b border-white/10 p-6 pr-14 flex items-center gap-3">
               <div className="bg-white/5 p-2.5 rounded-none border border-white/8">
                 <PhoneCall className="w-5 h-5 text-sky-400" />
               </div>
               <div>
-                <h3 className="font-display font-black text-lg text-white uppercase tracking-tight">
+                <h3 id="quote-dialog-title" className="font-display font-black text-lg text-white uppercase tracking-tight">
                   SGL Enterprise Layout Planner
                 </h3>
                 <p className="font-mono text-[8px] text-sky-400 uppercase tracking-[0.2em] leading-none mt-1 font-bold">
                   Request Commercial RFQ Bid — RM100k+ Scale Installations
                 </p>
+                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-slate-300">
+                  <a href={`tel:${COMPANY.phoneLink}`}>Call {COMPANY.contactName}: {COMPANY.phoneDisplay}</a>
+                  <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
+                  <a href={COMPANY_WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </div>
               </div>
             </div>
 
@@ -145,7 +174,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder="e.g. Saisyah Zainal"
+                          placeholder="Your name"
                           className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white placeholder-slate-650 focus:outline-none"
                         />
                       </div>
@@ -161,7 +190,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                           required
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                          placeholder="e.g. SGL Malaysia Sdn Bhd"
+                          placeholder="Your company name"
                           className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white placeholder-slate-650 focus:outline-none"
                         />
                       </div>
@@ -177,7 +206,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder="e.g. partner@sgl.com"
+                          placeholder="you@example.com"
                           className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white placeholder-slate-650 focus:outline-none"
                         />
                       </div>
@@ -192,7 +221,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          placeholder="e.g. +60 12-345 6789"
+                          placeholder="Your contact number"
                           className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white placeholder-slate-650 focus:outline-none"
                         />
                       </div>
@@ -223,9 +252,11 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                           className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white focus:outline-none"
                           aria-label="Product series selector"
                         >
-                          <option value="Corporate">{PRICING_PRODUCTS.Corporate.productName} - RM 3,200 / sqm</option>
-                          <option value="Retail">{PRICING_PRODUCTS.Retail.productName} - RM 2,800 / sqm</option>
-                          <option value="Outdoor">{PRICING_PRODUCTS.Outdoor.productName} - RM 3,500 / sqm</option>
+                          {Object.entries(PRICING_PRODUCTS).map(([key, product]) => (
+                            <option key={key} value={key}>
+                              {product.productName} - RM {product.ratePerSqm.toLocaleString('en-MY')} / sqm
+                            </option>
+                          ))}
                         </select>
                       </div>
 
@@ -240,7 +271,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                             type="number"
                             min="1.0"
                             max="50.0"
-                            step="0.5"
+                            step="0.001"
                             value={formData.width}
                             onChange={(e) => setFormData({ ...formData, width: parseFloat(e.target.value) || 1.0 })}
                             className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white focus:outline-none font-mono"
@@ -255,7 +286,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                             type="number"
                             min="1.0"
                             max="30.0"
-                            step="0.5"
+                            step="0.001"
                             value={formData.height}
                             onChange={(e) => setFormData({ ...formData, height: parseFloat(e.target.value) || 1.0 })}
                             className="w-full bg-[#0b1120] border border-white/8 focus:border-blue-500 px-3 py-2.5 rounded-none text-xs text-white focus:outline-none font-mono"
@@ -301,7 +332,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                   {/* Submission and error verification */}
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-4 border-t border-white/5">
                     <span className="text-[10px] text-slate-400 font-sans leading-normal max-w-sm">
-                      *By clicking submit, your project blueprints are compiled and routed directly to our specialist bidding division.
+                      Prepare an on-screen estimate, or contact Daniel directly by email, phone, or WhatsApp to request a quotation.
                     </span>
                     <button
                       type="submit"
@@ -315,7 +346,7 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                         </>
                       ) : (
                         <>
-                          Submit Project Plan <Send className="w-3.5 h-3.5" />
+                          Prepare Estimate <Send className="w-3.5 h-3.5" />
                         </>
                       )}
                     </button>
@@ -328,13 +359,13 @@ export default function ConsultationDialog({ isOpen, onClose, preselectedProduct
                     <CheckCircle className="w-12 h-12" />
                   </div>
                   <h3 className="font-display font-black text-2xl text-white uppercase tracking-tight leading-none mb-2">
-                    Project Plan Compiled!
+                    Estimate Prepared
                   </h3>
                   <p className="text-xs text-slate-300 font-sans leading-relaxed">
-                    Thank you, <strong className="text-white">{formData.name}</strong>. SGL has locked your custom plan for <strong className="text-white">{formData.company}</strong> estimated at <strong className="text-sky-400">{livePriceEstimate}</strong>.
+                    Thank you, <strong className="text-white">{formData.name}</strong>. Your estimate for <strong className="text-white">{formData.company}</strong> is <strong className="text-sky-400">{livePriceEstimate}</strong>. This estimate is shown here only; it has not been sent to SGL.
                   </p>
                   <p className="text-xs text-slate-400 font-sans leading-normal border-t border-white/5 pt-4">
-                    Our Kuala Lumpur senior bidding architect will telephone you within 4 business hours to finalize structures and physical scope variables.
+                    To request a formal quotation, contact {COMPANY.contactName}, {COMPANY.contactPosition}, at <a className="text-sky-400 underline" href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a> or <a className="text-sky-400 underline" href={`tel:${COMPANY.phoneLink}`}>{COMPANY.phoneDisplay}</a>.
                   </p>
                   <div className="pt-2">
                     <button

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useReducedMotion } from 'motion/react';
 import { HERO_SLIDES } from '../constants';
 import { ChevronLeft, ChevronRight, Sparkles, Sliders, CheckCircle2, ArrowRight } from 'lucide-react';
 
@@ -10,35 +11,43 @@ interface HeroSliderProps {
 
 export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: HeroSliderProps) {
   const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 = right, -1 = left
+  const [paused, setPaused] = useState(false);
+  const [interacting, setInteracting] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
-  // Automatic rotation loop
   useEffect(() => {
+    if (prefersReducedMotion || paused || interacting) return;
+
     const interval = setInterval(() => {
       handleNext();
     }, 7000); // Rotate every 7 seconds
     return () => clearInterval(interval);
-  }, [index]);
+  }, [index, prefersReducedMotion, paused, interacting]);
 
   const handleNext = () => {
-    setDirection(1);
     setIndex((prevIndex) => (prevIndex + 1) % HERO_SLIDES.length);
   };
 
   const handlePrev = () => {
-    setDirection(-1);
     setIndex((prevIndex) => (prevIndex - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
   };
 
   const setSlide = (targetIndex: number) => {
-    setDirection(targetIndex > index ? 1 : -1);
     setIndex(targetIndex);
   };
 
   const currentSlide = HERO_SLIDES[index];
 
   return (
-    <div id="hero-slider-root" className="relative w-full h-[95vh] min-h-[600px] overflow-hidden bg-slate-950">
+    <section
+      id="hero-slider-root"
+      aria-labelledby="homepage-heading"
+      onMouseEnter={() => setInteracting(true)}
+      onMouseLeave={() => setInteracting(false)}
+      onFocusCapture={() => setInteracting(true)}
+      onBlurCapture={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setInteracting(false); }}
+      className="relative w-full min-h-[760px] overflow-hidden bg-slate-950"
+    >
       
       {/* Background Slides and Cross-fades */}
       <div className="absolute inset-0">
@@ -48,13 +57,16 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
             initial={{ opacity: 0.1, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
+            transition={prefersReducedMotion ? { duration: 0 } : { duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
             className="absolute inset-0 w-full h-full"
           >
             {/* The hyperrealistic commercial image */}
             <img
               src={currentSlide.image}
-              alt={currentSlide.heading}
+              alt={`${currentSlide.heading} LED display installation in Malaysia`}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              fetchPriority={index === 0 ? 'high' : 'auto'}
+              decoding="async"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover object-center"
             />
@@ -69,7 +81,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
       </div>
 
       {/* Floating high-tech specifications overlay in bottom right corner */}
-      <div className="absolute bottom-12 right-6 md:right-12 z-20 hidden sm:block bg-[#111827]/90 backdrop-blur-md border border-white/8 p-5 shadow-[0_0_35px_rgba(0,0,0,0.8)] max-w-xs rounded-xs">
+      <div className="absolute bottom-12 right-6 md:right-12 z-20 hidden xl:block bg-[#111827]/90 backdrop-blur-md border border-white/8 p-5 shadow-[0_0_35px_rgba(0,0,0,0.8)] max-w-xs rounded-xs">
         <div className="flex items-center gap-2 font-mono text-[9px] text-sky-400 tracking-[0.2em] uppercase mb-3">
           <Sparkles className="w-3 h-3 text-sky-400" /> Live Project Diagnostics
         </div>
@@ -90,9 +102,9 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
       </div>
 
       {/* Main Content Area */}
-      <div className="absolute inset-0 z-10 flex items-center pt-28 sm:pt-32 md:pt-36">
+      <div className="relative z-10 flex items-center pt-32 pb-32 sm:pt-40 sm:pb-36">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
-          <div className="max-w-2xl md:max-w-3xl">
+          <div className="max-w-3xl">
             
             {/* Animated Header Category Badge */}
             <AnimatePresence mode="wait">
@@ -101,7 +113,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: prefersReducedMotion ? 0 : 0.5 }}
                 className="editorial-title-badge"
               >
                 <span className="w-1.5 h-1.5 bg-sky-450 rounded-full animate-pulse mr-1"></span>
@@ -109,18 +121,24 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
               </motion.div>
             </AnimatePresence>
 
-            {/* Slide Heading Headline */}
+            <h1
+              id="homepage-heading"
+              className="text-4xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight text-white leading-[1.05] mb-4"
+            >
+              Professional LED Screen Supplier &amp; Installation in Malaysia
+            </h1>
+
             <AnimatePresence mode="wait">
-              <motion.h1
+              <motion.h2
                 key={`heading-${currentSlide.id}`}
-                initial={{ opacity: 0, y: 20 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-3xl sm:text-5xl md:text-6xl lg:text-[76px] font-display font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-500 uppercase leading-[1.1] md:leading-[0.9] mb-4"
+                transition={{ duration: prefersReducedMotion ? 0 : 0.6, delay: prefersReducedMotion ? 0 : 0.1 }}
+                className="text-xl sm:text-2xl md:text-3xl font-display font-semibold tracking-tight text-slate-100 leading-tight mb-3"
               >
                 {currentSlide.heading}
-              </motion.h1>
+              </motion.h2>
             </AnimatePresence>
 
             {/* Tagline Indicator */}
@@ -130,7 +148,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.9 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
+                transition={{ duration: prefersReducedMotion ? 0 : 0.4, delay: prefersReducedMotion ? 0 : 0.2 }}
                 className="font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.3em] text-[#38bdf8] uppercase ml-0.5 mb-6"
               >
                 {currentSlide.tagline}
@@ -144,7 +162,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
+                transition={{ duration: prefersReducedMotion ? 0 : 0.5, delay: prefersReducedMotion ? 0 : 0.3 }}
                 className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed max-w-xl pb-4 font-sans"
               >
                 {currentSlide.description}
@@ -158,23 +176,23 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.5, delay: 0.35 }}
-                className="hidden sm:block mb-8 border border-white/5 bg-[#111827]/70 p-4 sm:p-5 max-w-xl rounded-none text-xs space-y-3 font-sans"
+                transition={{ duration: prefersReducedMotion ? 0 : 0.5, delay: prefersReducedMotion ? 0 : 0.35 }}
+                className="hidden lg:block mb-8 border border-white/5 bg-[#111827]/70 p-4 sm:p-5 max-w-xl rounded-none text-xs space-y-3 font-sans"
               >
                 <div className="flex items-start gap-4">
                   <span className="font-mono text-[8px] sm:text-[9px] text-[#38bdf8] tracking-wider uppercase shrink-0 w-24 pt-0.5">// TARGET SECTORS:</span>
-                  <span className="text-slate-300 font-medium font-sans">{(currentSlide as any).industry}</span>
+                  <span className="text-slate-300 font-medium font-sans">{currentSlide.industry}</span>
                 </div>
                 <div className="flex items-start gap-4">
                   <span className="font-mono text-[8px] sm:text-[9px] text-[#38bdf8] tracking-wider uppercase shrink-0 w-24 pt-0.5">// PRACTICAL USE:</span>
-                  <span className="text-slate-300 font-medium font-sans">{(currentSlide as any).useCase}</span>
+                  <span className="text-slate-300 font-medium font-sans">{currentSlide.useCase}</span>
                 </div>
                 <div className="flex items-start gap-4 leading-relaxed">
                   <span className="font-mono text-[8px] sm:text-[9px] text-emerald-400 tracking-wider uppercase shrink-0 w-24 pt-0.5 flex items-center gap-1">
                     <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full inline-block animate-pulse"></span>
                     VALUE BENEFIT:
                   </span>
-                  <span className="text-emerald-400 font-bold font-sans">{(currentSlide as any).benefit}</span>
+                  <span className="text-emerald-400 font-bold font-sans">{currentSlide.benefit}</span>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -186,22 +204,22 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
+                transition={{ duration: prefersReducedMotion ? 0 : 0.5, delay: prefersReducedMotion ? 0 : 0.4 }}
                 className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1"
               >
                 <button
-                  onClick={onOpenConsultation}
+                  onClick={() => onNavigateToSection('solutions-section')}
                   className="editorial-button-primary"
                   id="hero-inquire-btn"
                 >
-                  Get Free Consultation
+                  Explore Solutions
                 </button>
                 <button
                   onClick={onOpenConsultation}
                   className="editorial-button-secondary inline-flex items-center justify-center gap-2"
                   id="hero-calc-shortcut-btn"
                 >
-                  Request Quotation
+                  Get a Quote
                 </button>
               </motion.div>
             </AnimatePresence>
@@ -229,6 +247,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
           <ChevronRight className="w-3.5 h-3.5" />
         </button>
 
+        <button type="button" onClick={() => setPaused(!paused)} aria-pressed={paused} className="px-3 py-2 text-xs border border-white/20 text-white">{paused ? 'Play' : 'Pause'}</button>
         {/* Selector slide indicators with simple visual timer rings */}
         <div className="flex items-center gap-2 ml-4">
           {HERO_SLIDES.map((slide, idx) => (
@@ -237,6 +256,7 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
               onClick={() => setSlide(idx)}
               className="py-2 cursor-pointer focus:outline-none"
               aria-label={`Slide target ${idx + 1}`}
+              aria-current={idx === index ? "true" : undefined}
               id={`hero-bullet-btn-${idx}`}
             >
               <div className="relative w-8 h-1 bg-white/10 rounded-none overflow-hidden">
@@ -253,6 +273,6 @@ export default function HeroSlider({ onNavigateToSection, onOpenConsultation }: 
 
       {/* Side Ambient Glowing Lines */}
       <div className="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-blue-600/20 to-transparent pointer-events-none" />
-    </div>
+    </section>
   );
 }

@@ -26,12 +26,12 @@ export default function SpecTable({
         return (
           <div
             key={index}
-            className={`grid grid-cols-2 text-xs py-1.5 ${
+            className={`grid grid-cols-2 gap-3 text-xs py-1.5 ${
               !isLast ? 'border-b border-white/5' : ''
             }`}
           >
             <span className="text-slate-400 font-semibold font-sans">{item.label}</span>
-            <span className="font-mono text-white text-right font-semibold truncate">
+            <span className="font-mono text-white text-right font-semibold break-words">
               {item.value}
             </span>
           </div>

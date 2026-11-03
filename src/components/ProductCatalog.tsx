@@ -30,7 +30,7 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
           badgeText="SGL CORE SIGNATURE CATALOGUE"
           icon={<Layers className="w-3 h-3 text-sky-400" />}
           title="Ultra-Premium LED Panel Series"
-          description="Our luxury commercial installations are designed with true-calibrated color standards and structural magnesium-alloy shells to endure equatorial weather, heavy public footfall, and close banking lobby range."
+          description="SGL International LED supplies, installs, and maintains indoor P1.86 and P2.5 LED screens and outdoor P3.91 displays. Explore custom LED video walls for schools, hotels, churches, offices, retail spaces, and events."
         />
 
         {/* Tab Filters */}
@@ -39,6 +39,7 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
+              aria-pressed={activeTab === tab}
               className={`px-6 py-3 rounded-none font-display text-[10px] font-bold uppercase tracking-[0.2em] cursor-pointer transition-all border ${
                 activeTab === tab
                   ? 'bg-white border-white text-black shadow-lg'
@@ -65,4 +66,3 @@ export default function ProductCatalog({ onSelectProduct }: ProductCatalogProps)
     </section>
   );
 }
-
